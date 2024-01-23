@@ -9,7 +9,7 @@
 <meta name="author" content="Corey Voller">
 <meta name="dcterms.date" content="2024-01-22">
 
-<title>Mathemedician - More Efficient Working: A guide to standardising scripts</title>
+<title>Mathemedician - More Efficient Working</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -100,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -122,12 +122,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/cgvoller/" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/corey-v-027bb0198" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -142,7 +142,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">More Efficient Working: A guide to standardising scripts</h1>
+      <h1 class="title">More Efficient Working</h1>
+            <p class="subtitle lead">A guide to standardising scripts</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">news</div>
                 <div class="quarto-category">standardisation</div>
@@ -174,22 +175,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-are-snippets" id="toc-what-are-snippets" class="nav-link active" data-scroll-target="#what-are-snippets">What are snippets?</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
+  <li><a href="#how-to-add-custom-snippets" id="toc-how-to-add-custom-snippets" class="nav-link" data-scroll-target="#how-to-add-custom-snippets">How to add custom snippets</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<p>A useful way to standardise scripts within and across R-users is through the use of snippets. When I mention custom snippets to people they often have never heard of them but they are useful for many reasons and you likely use them without knowing. For example, when I type ‘for’ and press tab, I am met with the following chunk of code automatically.</p>
+<section id="what-are-snippets" class="level1">
+<h1>What are snippets?</h1>
+<p>A useful way to standardise scripts 12 within and across R-users is through the use of snippets. When I mention custom snippets to people they often have never heard of them but they are useful for many reasons and you likely use them without knowing. For example, when I type ‘for’ and press tab, I am met with the following chunk of code automatically.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (variable <span class="cf">in</span> vector) {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This can be extended such that you can type any phrase and it will load up a custom template.</p>
-<p>To anyone who has QC’d code, they will understand the frustration of loading up a script and seeing a huge mess of disjointed code with a lack of structure and comments (Not mentioning any names - I am far from perfect myself!). As part of having good coding practices, I believe it is good to have consistency across scripts, not just for an individual but possibly across a team. I will now show two templates below and how to implement them.</p>
-<p>The first snippet is fairly trivial but surprisingly useful in day-to-day.</p>
+</section>
+<section id="motivation" class="level1">
+<h1>Motivation</h1>
+<p>To anyone who has QC’d code, they will understand the frustration of loading up a script and seeing a huge mess of disjointed code with a lack of structure and comments (Not mentioning any names - I am far from perfect myself!). As part of having good coding practices, I believe it is good to have consistency across scripts, not just for an individual but possibly across a team.</p>
+</section>
+<section id="how-to-add-custom-snippets" class="level1">
+<h1>How to add custom snippets</h1>
+</section>
+<section id="examples" class="level1">
+<h1>Examples</h1>
+<p>The first snippet is fairly trivial but surprisingly useful in day-to-day working.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>snippet pastefile</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"`r gsub('"', "", gsub("</span><span class="sc">\\\\</span><span class="st">", "/", readClipboard()))`"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -197,6 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>When copying and pasting file paths in R you are often met with backslashes which R complains about. The above snippet, when you copy a file path and type ‘pastefile’ it will past the file path location with forward slashes instead.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

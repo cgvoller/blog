@@ -1,12 +1,16 @@
 ---
-title: "More Efficient Working: A guide to standardising scripts"
+title: "More Efficient Working"
+subtitle: "A guide to standardising scripts" 
 author: "Corey Voller"
 date: "2024-01-22"
-categories: [news, standardisation]
+toc: true
+categories: [news,R, standardisation]
 image: "image.jpg"
 ---
 
-A useful way to standardise scripts within and across R-users is through the use of snippets. When I mention custom snippets to people they often have never heard of them but they are useful for many reasons and you likely use them without knowing. For example, when I type 'for' and press tab, I am met with the following chunk of code automatically.
+# What are snippets?
+
+A useful way to standardise scripts 12 within and across R-users is through the use of snippets. When I mention custom snippets to people they often have never heard of them but they are useful for many reasons and you likely use them without knowing. For example, when I type 'for' and press tab, I am met with the following chunk of code automatically.
 
 ```{r,eval=FALSE}
 for (variable in vector) {
@@ -16,9 +20,15 @@ for (variable in vector) {
 
 This can be extended such that you can type any phrase and it will load up a custom template.
 
-To anyone who has QC'd code, they will understand the frustration of loading up a script and seeing a huge mess of disjointed code with a lack of structure and comments (Not mentioning any names - I am far from perfect myself!). As part of having good coding practices, I believe it is good to have consistency across scripts, not just for an individual but possibly across a team. I will now show two templates below and how to implement them.
+# Motivation
 
-The first snippet is fairly trivial but surprisingly useful in day-to-day.
+To anyone who has QC'd code, they will understand the frustration of loading up a script and seeing a huge mess of disjointed code with a lack of structure and comments (Not mentioning any names - I am far from perfect myself!). As part of having good coding practices, I believe it is good to have consistency across scripts, not just for an individual but possibly across a team.
+
+# How to add custom snippets
+
+# Examples
+
+The first snippet is fairly trivial but surprisingly useful in day-to-day working.
 
 ```{r,eval=FALSE}
 

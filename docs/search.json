@@ -7,11 +7,11 @@
     "text": "I’ve contemplated creating a blog for a while now with the hopes of achieving a few personal goals of mine. Firstly, I hope this can become a library of useful information I have accumulated in my journey thus far. Previously, interesting tricks, tips and code have often become buried in a maze of folders, forgotten and lost over time - which is a shame.\nSecondly, I hope this blog can act as a motivator for myself to search out new developments in statistics and R programming - with the added bonus of potentially helping out one or two other people a long the way. It has long been a goal of mine to release useful information freely available to the public. I find it a shame when a persons learning and development is limited through pesky pay-walls.\nAnother aspiration of mine is to become better at writing and communicate complex ideas in a simple manner such that statisticians and non-statisticians alike can understand. Finally, I like the idea of owning something myself, a place to have free reign over what is posted and how.\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
+    "objectID": "posts/ipcwswitch/index.html",
+    "href": "posts/ipcwswitch/index.html",
+    "title": "ipcwswitch",
     "section": "",
-    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+    "text": "This is a post with executable code."
   },
   {
     "objectID": "about.html",
@@ -25,13 +25,13 @@
     "href": "index.html",
     "title": "A Mathemedician’s Blog",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJan 22, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nMore Efficient Working: A guide to standardising scripts\n\n\n\n\n\n\n\nnews\n\n\nstandardisation\n\n\n\n\n\n\n\n\n\n\n\nJan 22, 2024\n\n\nCorey Voller\n\n\n\n\n\n\n  \n\n\n\n\nNew Year, New Blog?\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJan 22, 2024\n\n\nCorey Voller\n\n\n\n\n\n\nNo matching items"
+    "text": "ipcwswitch\n\n\nAn R package for inverse probability of censoring weighting with an application to switches in clinical trials\n\n\n\n\nnews\n\n\nR\n\n\nsurvival analysis\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2024\n\n\nCorey Voller\n\n\n\n\n\n\n  \n\n\n\n\nMore Efficient Working\n\n\nA guide to standardising scripts\n\n\n\n\nnews\n\n\nR\n\n\nstandardisation\n\n\n\n\n\n\n\n\n\n\n\nJan 22, 2024\n\n\nCorey Voller\n\n\n\n\n\n\n  \n\n\n\n\nNew Year, New Blog?\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJan 22, 2024\n\n\nCorey Voller\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/Standardising Scripts/index.html",
     "href": "posts/Standardising Scripts/index.html",
-    "title": "More Efficient Working: A guide to standardising scripts",
+    "title": "More Efficient Working",
     "section": "",
-    "text": "A useful way to standardise scripts within and across R-users is through the use of snippets. When I mention custom snippets to people they often have never heard of them but they are useful for many reasons and you likely use them without knowing. For example, when I type ‘for’ and press tab, I am met with the following chunk of code automatically.\n\nfor (variable in vector) {\n  \n}\n\nThis can be extended such that you can type any phrase and it will load up a custom template.\nTo anyone who has QC’d code, they will understand the frustration of loading up a script and seeing a huge mess of disjointed code with a lack of structure and comments (Not mentioning any names - I am far from perfect myself!). As part of having good coding practices, I believe it is good to have consistency across scripts, not just for an individual but possibly across a team. I will now show two templates below and how to implement them.\nThe first snippet is fairly trivial but surprisingly useful in day-to-day.\n\nsnippet pastefile\n    \"`r gsub('\"', \"\", gsub(\"\\\\\\\\\", \"/\", readClipboard()))`\"\n\nWhen copying and pasting file paths in R you are often met with backslashes which R complains about. The above snippet, when you copy a file path and type ‘pastefile’ it will past the file path location with forward slashes instead."
+    "text": "What are snippets?\nA useful way to standardise scripts 12 within and across R-users is through the use of snippets. When I mention custom snippets to people they often have never heard of them but they are useful for many reasons and you likely use them without knowing. For example, when I type ‘for’ and press tab, I am met with the following chunk of code automatically.\n\nfor (variable in vector) {\n  \n}\n\nThis can be extended such that you can type any phrase and it will load up a custom template.\n\n\nMotivation\nTo anyone who has QC’d code, they will understand the frustration of loading up a script and seeing a huge mess of disjointed code with a lack of structure and comments (Not mentioning any names - I am far from perfect myself!). As part of having good coding practices, I believe it is good to have consistency across scripts, not just for an individual but possibly across a team.\n\n\nHow to add custom snippets\n\n\nExamples\nThe first snippet is fairly trivial but surprisingly useful in day-to-day working.\n\nsnippet pastefile\n    \"`r gsub('\"', \"\", gsub(\"\\\\\\\\\", \"/\", readClipboard()))`\"\n\nWhen copying and pasting file paths in R you are often met with backslashes which R complains about. The above snippet, when you copy a file path and type ‘pastefile’ it will past the file path location with forward slashes instead."
   }
 ]

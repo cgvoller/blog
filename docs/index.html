@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -119,12 +119,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/cgvoller/" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/corey-v-027bb0198" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -157,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(1)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(3)</span></div><div class="category" data-category="standardisation">standardisation <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(3)</span></div><div class="category" data-category="standardisation">standardisation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="survival analysis">survival analysis <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -170,63 +170,66 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="news,code,analysis" data-listing-date-sort="1705881600000" data-listing-file-modified-sort="1705932712210" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="0" data-categories="news,R,survival analysis" data-listing-date-sort="1706486400000" data-listing-file-modified-sort="1706041898720" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <div class="thumbnail">
-<p><a href="./posts/post-with-code/index.html"> <img src="./posts/post-with-code/image.jpg" class="thumbnail-image"> </a></p>
+<p><a href="./posts/ipcwswitch/index.html"> <img src="./posts/ipcwswitch/image.jpg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
-<a href="./posts/post-with-code/index.html">
+<a href="./posts/ipcwswitch/index.html">
 <h3 class="no-anchor listing-title">
-Post With Code
+ipcwswitch
 </h3>
 <div class="listing-subtitle">
-
+An R package for inverse probability of censoring weighting with an application to switches in clinical trials
 </div>
 </a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
 news
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
-analysis
+<div class="listing-category" onclick="window.quartoListingCategory('survival analysis'); return false;">
+survival analysis
 </div>
 </div>
-<a href="./posts/post-with-code/index.html">
+<a href="./posts/ipcwswitch/index.html">
 <div class="listing-description">
 This is a post with executable code.
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/post-with-code/index.html">
+<a href="./posts/ipcwswitch/index.html">
 <div class="listing-date">
-Jan 22, 2024
+Jan 29, 2024
 </div>
 <div class="listing-author">
-Harlow Malloc
+Corey Voller
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="news,standardisation" data-listing-date-sort="1705881600000" data-listing-file-modified-sort="1706002884903" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="1" data-categories="news,R,standardisation" data-listing-date-sort="1705881600000" data-listing-file-modified-sort="1706021351203" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
 <div class="thumbnail">
 <p><a href="./posts/Standardising Scripts/index.html"> <img src="./posts/Standardising Scripts/image.jpg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/Standardising Scripts/index.html">
 <h3 class="no-anchor listing-title">
-More Efficient Working: A guide to standardising scripts
+More Efficient Working
 </h3>
 <div class="listing-subtitle">
-
+A guide to standardising scripts
 </div>
 </a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
 news
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
 </div>
 <div class="listing-category" onclick="window.quartoListingCategory('standardisation'); return false;">
 standardisation
@@ -234,7 +237,7 @@ standardisation
 </div>
 <a href="./posts/Standardising Scripts/index.html">
 <div class="listing-description">
-A useful way to standardise scripts within and across R-users is through the use of snippets. When I mention custom snippets to people they often have never heard of them…
+A useful way to standardise scripts 12 within and across R-users is through the use of snippets. When I mention custom snippets to people they often have never heard of them…
 </div>
 </a>
 </div>
