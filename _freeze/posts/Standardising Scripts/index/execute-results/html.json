@@ -1,0 +1,14 @@
+{
+  "hash": "da4ff64754d8970a7e9a487adea36fd9",
+  "result": {
+    "markdown": "---\ntitle: \"More Efficient Working: A guide to standardising scripts\"\nauthor: \"Corey Voller\"\ndate: \"2024-01-22\"\ncategories: [news, standardisation]\nimage: \"image.jpg\"\n---\n\n\nA useful way to standardise scripts within and across R-users is through the use of snippets. When I mention custom snippets to people they often have never heard of them but they are useful for many reasons and you likely use them without knowing. For example, when I type 'for' and press tab, I am met with the following chunk of code automatically.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nfor (variable in vector) {\n  \n}\n```\n:::\n\n\nThis can be extended such that you can type any phrase and it will load up a custom template.\n\nTo anyone who has QC'd code, they will understand the frustration of loading up a script and seeing a huge mess of disjointed code with a lack of structure and comments (Not mentioning any names - I am far from perfect myself!). As part of having good coding practices, I believe it is good to have consistency across scripts, not just for an individual but possibly across a team. I will now show two templates below and how to implement them.\n\nThe first snippet is fairly trivial but surprisingly useful in day-to-day.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nsnippet pastefile\n\t\"`r gsub('\"', \"\", gsub(\"\\\\\\\\\", \"/\", readClipboard()))`\"\n```\n:::\n\n\nWhen copying and pasting file paths in R you are often met with backslashes which R complains about. The above snippet, when you copy a file path and type 'pastefile' it will past the file path location with forward slashes instead.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

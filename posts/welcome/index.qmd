@@ -1,0 +1,16 @@
+---
+title: "New Year, New Blog?"
+author: "Corey Voller"
+date: "2024-01-22"
+categories: [news]
+---
+
+I've contemplated creating a blog for a while now with the hopes of achieving a few personal goals of mine. Firstly, I hope this can become a library of useful information I have accumulated in my journey thus far. Previously, interesting tricks, tips and code have often become buried in a maze of folders, forgotten and lost over time - which is a shame.
+
+Secondly, I hope this blog can act as a motivator for myself to search out new developments in statistics and R programming - with the added bonus of potentially helping out one or two other people a long the way. It has long been a goal of mine to release useful information freely available to the public. I find it a shame when a persons learning and development is limited through pesky pay-walls.
+
+Another aspiration of mine is to become better at writing and communicate complex ideas in a simple manner such that statisticians and non-statisticians alike can understand. Finally, I like the idea of owning something myself, a place to have free reign over what is posted and how.
+
+![](thumbnail.jpg)
+
+Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
