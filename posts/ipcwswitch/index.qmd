@@ -2,7 +2,7 @@
 title: "ipcwswitch"
 subtitle: "An R package for inverse probability of censoring weighting with an application to switches in clinical trials"
 author: "Corey Voller"
-date: "2024-01-29"
+date: "2024-02-04"
 categories: [news, R, survival analysis]
 image: "image.jpg"
 bibliography: references.bib
