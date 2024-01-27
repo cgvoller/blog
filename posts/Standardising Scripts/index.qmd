@@ -12,8 +12,6 @@ image: "image.jpg"
 
 A useful way to cut-down the amount of repetitive typing is through the use of snippets. My love of snippets is primarily fueled by my inherent laziness (If any future employers are reading this I'm joking). A snippet allows you to automatically insert pieces of code. When I mention custom snippets to people they have often never heard of them but you likely use them without knowing and can be very useful. For example, when I type 'for' and press tab, I am met with the following chunk of code.
 
-A useful way to cut-down the amount of repitive typing is through the use of snippets. My love of snippets is primarily fueled by my inherent laziness (If any future employers are reading this I'm joking). A snippet allows you to automatically insert pieces of code. When I mention custom snippets to people they have often never heard of them but you likely use them without knowing and can be very useful. For example, when I type 'for' and press tab, I am met with the following chunk of code.
-
 ```{r,eval=FALSE}
 for (variable in vector) {
   
