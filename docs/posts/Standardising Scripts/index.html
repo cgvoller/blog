@@ -121,6 +121,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../misc.html" rel="" target="">
+ <span class="menu-text">misc</span></a>
+  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/cgvoller/" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
@@ -146,6 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <p class="subtitle lead">A guide to standardising scripts</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">news</div>
+                <div class="quarto-category">R</div>
                 <div class="quarto-category">standardisation</div>
               </div>
                   </div>
@@ -183,7 +188,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-are-snippets" id="toc-what-are-snippets" class="nav-link active" data-scroll-target="#what-are-snippets">What are snippets?</a></li>
   <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
   <li><a href="#how-to-add-custom-snippets" id="toc-how-to-add-custom-snippets" class="nav-link" data-scroll-target="#how-to-add-custom-snippets">How to add custom snippets</a></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
+  <ul class="collapse">
+  <li><a href="#change-to-when-pasting-file-paths" id="toc-change-to-when-pasting-file-paths" class="nav-link" data-scroll-target="#change-to-when-pasting-file-paths">Change \ to / when pasting file paths</a></li>
+  <li><a href="#generic-script-template-1" id="toc-generic-script-template-1" class="nav-link" data-scroll-target="#generic-script-template-1">Generic Script Template 1</a></li>
+  <li><a href="#config-script-template" id="toc-config-script-template" class="nav-link" data-scroll-target="#config-script-template">Config Script Template</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -195,31 +205,142 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="what-are-snippets" class="level1">
 <h1>What are snippets?</h1>
-<p>A useful way to standardise scripts 12 within and across R-users is through the use of snippets. When I mention custom snippets to people they often have never heard of them but they are useful for many reasons and you likely use them without knowing. For example, when I type ‘for’ and press tab, I am met with the following chunk of code automatically.</p>
+<p>A useful way to cut-down the amount of repitive typing is through the use of snippets. My love of snippets is primarily fueled by my inherent laziness (If any future employers are reading this I’m joking). A snippet allows you to automatically insert pieces of code. When I mention custom snippets to people they have often never heard of them but you likely use them without knowing and can be very useful. For example, when I type ‘for’ and press tab, I am met with the following chunk of code.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (variable <span class="cf">in</span> vector) {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This can be extended such that you can type any phrase and it will load up a custom template.</p>
+<p>There are numerous pre-defined snippets that exist in the settings already but we can insert our own customised snippets. You can see some larger snippets on my GitHub <a href="https://github.com/cgvoller/standardisingScripts">here</a>.</p>
 </section>
 <section id="motivation" class="level1">
 <h1>Motivation</h1>
-<p>To anyone who has QC’d code, they will understand the frustration of loading up a script and seeing a huge mess of disjointed code with a lack of structure and comments (Not mentioning any names - I am far from perfect myself!). As part of having good coding practices, I believe it is good to have consistency across scripts, not just for an individual but possibly across a team.</p>
+<p>To anyone who has QC’d code, they will understand the frustration of loading up a script and seeing a huge mess of disjointed code with a lack of structure and comments (Not mentioning any names - I am far from perfect myself!). As part of having good coding practices, I believe it is good to have consistency and fluency across scripts, not just for an individual but across a team. This is where snippets can be useful, I can load up a script template which will be consistent across my projects and work and therefore easier to navigate across them.</p>
 </section>
 <section id="how-to-add-custom-snippets" class="level1">
 <h1>How to add custom snippets</h1>
+<p>Within RStudio, navigate to the top and click Tools -&gt; Global Options and select the code tab on the left. It should look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="options.jpg" class="img-fluid figure-img" width="652"></p>
+</figure>
+</div>
+<p>Ensure that snippets is ticked at the bottom and click ‘Edit Snippets’.</p>
+<p>Next, add in your custom snippet by typing ‘snippet’ followed by whatever name you choose for it and its functionality. The word snippet should be left aligned and coloured purple as seen below for my snippet ‘pastefile’.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="snippet_menu.JPG" width="631" height="629" class="figure-img"></p>
+</figure>
+</div>
+<p>To use your custom snippets, begin typing the name of the snippet into the script and you should see it appear with brackets <code>{snippet}</code> . Press ‘tab’ and it should load/execute the snippet.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="test.jpg" class="img-fluid figure-img" width="628"></p>
+</figure>
+</div>
 </section>
 <section id="examples" class="level1">
 <h1>Examples</h1>
+<section id="change-to-when-pasting-file-paths" class="level2">
+<h2 class="anchored" data-anchor-id="change-to-when-pasting-file-paths">Change \ to / when pasting file paths</h2>
 <p>The first snippet is fairly trivial but surprisingly useful in day-to-day working.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>snippet pastefile</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"`r gsub('"', "", gsub("</span><span class="sc">\\\\</span><span class="st">", "/", readClipboard()))`"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When copying and pasting file paths in R you are often met with backslashes which R complains about. The above snippet, when you copy a file path and type ‘pastefile’ it will past the file path location with forward slashes instead.</p>
+</section>
+<section id="generic-script-template-1" class="level2">
+<h2 class="anchored" data-anchor-id="generic-script-template-1">Generic Script Template 1</h2>
+<p>This is a generic script template with a few features. Firstly, at the top I like to define a few things:</p>
+<ol type="1">
+<li>Path of the project</li>
+<li>Overall purpose of the script</li>
+<li>Who wrote the script</li>
+<li>Date (which is taken automatically using <code>sys.time()</code></li>
+<li>Who and when the code has been QC’d</li>
+</ol>
+<p>You’ll also notice I use <code>## text ----</code>. The reason for this is it creates section headers which make navigating code easier.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sections.JPG" class="img-fluid figure-img" width="687"></p>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>snippet header</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="do">## ─────────────────────────────────────────────────────────────────────────────</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="do">##</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Project: `r paste(gsub(".*STUDY FOLDER/","",getwd()))`</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="do">##</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Purpose of script:</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="do">##</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Author: </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="do">##</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Date Created: `r paste(format(Sys.time(), "%d-%m-%Y"))`</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="do">##</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="do">## QC'd by:</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="do">## QC date:</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="do">##</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="do">## ─────────────────────────────────────────────────────────────────────────────</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="do">##</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Notes:</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="do">##   </span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="do">##</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="do">## ─────────────────────────────────────────────────────────────────────────────</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="do">##</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="do">## </span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="do">## set working directory -------------------------------------------------------</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Set working directory"</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># setwd("~/")  </span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Options ---------------------------------------------------------------------</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># options(scipen = 6, digits = 4) # View outputs in non-scientific notation</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Load packages ---------------------------------------------------------------</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Load packages"</span>)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Set file paths --------------------------------------------------------------</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Set file paths"</span>)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    base.path <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    data.path <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    output.path <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    template.path <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Load data -------------------------------------------------------------------</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Load data"</span>)</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># data &lt;- fread(file.path(data.path, ".csv")) # or read.csv, etc</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># load(x,file.path(data.path,".RData"))</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># load(file.path("C:/Users/isfar.RData"), isfar_env &lt;- new.env())</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    <span class="do">## First Section ---------------------------------------------------------------</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"First Section"</span>)</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Second Section --------------------------------------------------------------</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Second Section"</span>)</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Third Section ---------------------------------------------------------------</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Third section"</span>)</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Output  ---------------------------------------------------------------------</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Output"</span>)</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># save(x,file.path(output.path,".RData"))</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>    <span class="co"># write.csv(x,file.path(output.path,"x.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="config-script-template" class="level2">
+<h2 class="anchored" data-anchor-id="config-script-template">Config Script Template</h2>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

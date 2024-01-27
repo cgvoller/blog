@@ -4,9 +4,6 @@ image: profile.jpg
 about:
   template: jolla
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/corey-v-027bb0198
@@ -15,4 +12,8 @@ about:
       href: https://github.com/cgvoller
 ---
 
-About this blog
+My name is Corey, I am currently working as a Statistician in the UK. I graduated from UCL with a Masters in Medical Statistics. I enjoy searching for new topics outside of my day-job relating to statistics and programming in R although, I will occasionally use Python to create animated videos using a package called `manim` (if you've seen any 3Blue1Brown video's on YouTube you will have seen this package implemented there.)
+
+This blog will be focused on all things statistics with a focus on medicine although not exclusively. The aim is to push my statistical knowledge, searching for new methods and to catalogue these. A lot of my day job is spent looking at static outputs so where possible I will try to showcase interactive and alternative ways to display data (3-d plots, dynamic figures, tables, etc). The opinions and thoughts expressed here are my own and do not represent anyone else (i.e., employer).
+
+This blog is currently written using [quarto](https://quarto.org/), an open-source publishing system. At the time of writing, I am using it within RStudio.
