@@ -10,7 +10,11 @@ image: "image.jpg"
 
 # What are snippets?
 
+<<<<<<< HEAD
 A useful way to cut-down the amount of repetitive typing is through the use of snippets. My love of snippets is primarily fueled by my inherent laziness (If any future employers are reading this I'm joking). A snippet allows you to automatically insert pieces of code. When I mention custom snippets to people they have often never heard of them but you likely use them without knowing and can be very useful. For example, when I type 'for' and press tab, I am met with the following chunk of code.
+=======
+A useful way to cut-down the amount of repitive typing is through the use of snippets. My love of snippets is primarily fueled by my inherent laziness (If any future employers are reading this I'm joking). A snippet allows you to automatically insert pieces of code. When I mention custom snippets to people they have often never heard of them but you likely use them without knowing and can be very useful. For example, when I type 'for' and press tab, I am met with the following chunk of code.
+>>>>>>> 5080d96ce132128087f7733f2d9a3896fd9e9c72
 
 ```{r,eval=FALSE}
 for (variable in vector) {
@@ -62,7 +66,11 @@ This is a generic script template with a few features. Firstly, at the top I lik
 1.  Path of the project
 2.  Overall purpose of the script
 3.  Who wrote the script
+<<<<<<< HEAD
 4.  Date (which is taken automatically using `sys.time()`)
+=======
+4.  Date (which is taken automatically using `sys.time()`
+>>>>>>> 5080d96ce132128087f7733f2d9a3896fd9e9c72
 5.  Who and when the code has been QC'd
 
 You'll also notice I use `## text ----`. The reason for this is it creates section headers which make navigating code easier.
@@ -144,6 +152,7 @@ snippet header
 ```
 
 ## Config Script Template
+<<<<<<< HEAD
 
 ```{r,eval=FALSE}
 
@@ -232,3 +241,5 @@ snippet cctuconfigtemplate
 
 
 ```
+=======
+>>>>>>> 5080d96ce132128087f7733f2d9a3896fd9e9c72
