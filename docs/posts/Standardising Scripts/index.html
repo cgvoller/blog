@@ -190,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#how-to-add-custom-snippets" id="toc-how-to-add-custom-snippets" class="nav-link" data-scroll-target="#how-to-add-custom-snippets">How to add custom snippets</a></li>
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
   <ul class="collapse">
-  <li><a href="#change-to-when-pasting-file-paths" id="toc-change-to-when-pasting-file-paths" class="nav-link" data-scroll-target="#change-to-when-pasting-file-paths">Change \ to / when pasting file paths</a></li>
+  <li><a href="#change-to-when-pasting-file-paths" id="toc-change-to-when-pasting-file-paths" class="nav-link" data-scroll-target="#change-to-when-pasting-file-paths">Change &nbsp;to / when pasting file paths</a></li>
   <li><a href="#generic-script-template-1" id="toc-generic-script-template-1" class="nav-link" data-scroll-target="#generic-script-template-1">Generic Script Template 1</a></li>
   <li><a href="#config-script-template" id="toc-config-script-template" class="nav-link" data-scroll-target="#config-script-template">Config Script Template</a></li>
   </ul></li>
@@ -205,11 +205,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="what-are-snippets" class="level1">
 <h1>What are snippets?</h1>
-<<<<<<< HEAD
 <p>A useful way to cut-down the amount of repetitive typing is through the use of snippets. My love of snippets is primarily fueled by my inherent laziness (If any future employers are reading this I’m joking). A snippet allows you to automatically insert pieces of code. When I mention custom snippets to people they have often never heard of them but you likely use them without knowing and can be very useful. For example, when I type ‘for’ and press tab, I am met with the following chunk of code.</p>
-=======
 <p>A useful way to cut-down the amount of repitive typing is through the use of snippets. My love of snippets is primarily fueled by my inherent laziness (If any future employers are reading this I’m joking). A snippet allows you to automatically insert pieces of code. When I mention custom snippets to people they have often never heard of them but you likely use them without knowing and can be very useful. For example, when I type ‘for’ and press tab, I am met with the following chunk of code.</p>
->>>>>>> 5080d96ce132128087f7733f2d9a3896fd9e9c72
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (variable <span class="cf">in</span> vector) {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -246,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="examples" class="level1">
 <h1>Examples</h1>
 <section id="change-to-when-pasting-file-paths" class="level2">
-<h2 class="anchored" data-anchor-id="change-to-when-pasting-file-paths">Change \ to / when pasting file paths</h2>
+<h2 class="anchored" data-anchor-id="change-to-when-pasting-file-paths">Change &nbsp;to / when pasting file paths</h2>
 <p>The first snippet is fairly trivial but surprisingly useful in day-to-day working.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>snippet pastefile</span>
@@ -261,11 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Path of the project</li>
 <li>Overall purpose of the script</li>
 <li>Who wrote the script</li>
-<<<<<<< HEAD
 <li>Date (which is taken automatically using <code>sys.time()</code>)</li>
-=======
-<li>Date (which is taken automatically using <code>sys.time()</code></li>
->>>>>>> 5080d96ce132128087f7733f2d9a3896fd9e9c72
 <li>Who and when the code has been QC’d</li>
 </ol>
 <p>You’ll also notice I use <code>## text ----</code>. The reason for this is it creates section headers which make navigating code easier.</p>
@@ -346,7 +339,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="config-script-template" class="level2">
 <h2 class="anchored" data-anchor-id="config-script-template">Config Script Template</h2>
-<<<<<<< HEAD
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>snippet cctuconfigtemplate</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="do">## ─────────────────────────────────────────────────────────────────────────────</span></span>
@@ -431,8 +423,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>     <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">"black"</span>)</span>
 <span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-=======
->>>>>>> 5080d96ce132128087f7733f2d9a3896fd9e9c72
 
 
 </section>
