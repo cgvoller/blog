@@ -1,20 +1,26 @@
 project:
   type: website
   output-dir: docs
-
 website:
-  title: "Mathemedician"
+  title: Mathemedician
   navbar:
     right:
-      - about.qmd
-      - misc.qmd
-      - icon: github
-        href: https://github.com/cgvoller/
-      - icon: linkedin
-        href: https://www.linkedin.com/in/corey-v-027bb0198
+    - about.qmd
+    - misc.qmd
+    - icon: github
+      href: https://github.com/cgvoller/
+    - icon: linkedin
+      href: https://www.linkedin.com/in/corey-v-027bb0198
 format:
   html:
+    mermaid:
+      theme: neutral
+    #code-block-bg: true
+    #code-block-border-left: "#000000"
+    highlight-style: dracula
     theme: lux
-    css: styles.css
-
+    css:
+    - styles.css
+    - include/webex.css
+    include-after-body: include/webex.js
 editor: visual

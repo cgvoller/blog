@@ -10,7 +10,7 @@ format:
       margin-width: 200px
 ---
 
-I will be updating this page periodically to display a network diagram of the books I have read each calendar year. You might be asking why would I do that. The only answer I can think of is because it seems like a neat way to display data and to motivate me to read more (Note, the below network is incomplete but it is interactive!) :)
+I will be updating this page periodically to display a network diagram of the books I have read each calendar year. You might be asking why would I do that. The only answer I can think of is because it seems like a neat way to display data and to motivate me to read more (Note, the below network is merely an example but it is interactive!) :)
 
 # 2024
 
@@ -29,15 +29,15 @@ function ForceGraph(
     nodeTitle, // given d in nodes, a title string
     nodeFill = "currentColor", // node stroke fill (if not using a group color encoding)
     nodeStroke = "#fff", // node stroke color
-    nodeStrokeWidth = 1.5, // node stroke width, in pixels
+    nodeStrokeWidth = 2, // node stroke width, in pixels
     nodeStrokeOpacity = 1, // node stroke opacity
-    nodeRadius = 5, // node radius, in pixels
+    nodeRadius = 7, // node radius, in pixels
     nodeStrength,
     linkSource = ({ source }) => source, // given d in links, returns a node identifier string
     linkTarget = ({ target }) => target, // given d in links, returns a node identifier string
     linkStroke = "#999", // link stroke color
     linkStrokeOpacity = 0.6, // link stroke opacity
-    linkStrokeWidth = 1.5, // given d in links, returns a stroke width in pixels
+    linkStrokeWidth = 2, // given d in links, returns a stroke width in pixels
     linkStrokeLinecap = "round", // link stroke linecap
     linkStrength,
     colors = d3.schemeTableau10, // an array of color strings, for the node groups
@@ -195,5 +195,21 @@ chart = ForceGraph(miserables, {
   height: 600,
   invalidation // a promise to stop the simulation when the cell is re-run
 })
+
+```
+
+Here is a data frame containing the books I have read:
+
+```{r,echo=TRUE}
+
+library(tidyverse)
+library(gt)
+library(janitor)
+
+
+
+#books_tbl |>
+#  gt() |>
+#  opt_interactive()
 
 ```

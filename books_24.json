@@ -1,0 +1,16 @@
+{
+  "nodes": [
+    {"id": "Books", "group": 1},
+    {"id": "The Book of Why", "group": 2},
+    {"id": "The Hobbit", "group": 3},
+    {"id": "Noise", "group": 2}
+   
+  ],
+  "links": [
+    {"source": "The Book of Why", "target": "Books", "value": 1},
+    {"source": "The Hobbit", "target": "Books", "value": 1},
+    {"source": "Noise", "target": "Books", "value": 2},
+    {"source": "Noise", "target": "The Book of Why", "value": 2}
+
+  ]
+}

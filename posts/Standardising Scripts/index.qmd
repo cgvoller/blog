@@ -42,7 +42,7 @@ To use your custom snippets, begin typing the name of the snippet into the scrip
 
 # Examples
 
-## Change  to / when pasting file paths
+## Change \\ to / when pasting file paths
 
 The first snippet is fairly trivial but surprisingly useful in day-to-day working.
 

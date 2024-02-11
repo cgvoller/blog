@@ -98,6 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="include/webex.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -167,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>I will be updating this page periodically to display a network diagram of the books I have read each calendar year. You might be asking why would I do that. The only answer I can think of is because it seems like a neat way to display data and to motivate me to read more (Note, the below network is incomplete but it is interactive!) :)</p>
+<p>I will be updating this page periodically to display a network diagram of the books I have read each calendar year. You might be asking why would I do that. The only answer I can think of is because it seems like a neat way to display data and to motivate me to read more (Note, the below network is merely an example but it is interactive!) :)</p>
 <section id="section" class="level1">
 <h1>2024</h1>
 <div class="cell">
@@ -185,15 +186,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    nodeTitle<span class="op">,</span> <span class="co">// given d in nodes, a title string</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    nodeFill <span class="op">=</span> <span class="st">"currentColor"</span><span class="op">,</span> <span class="co">// node stroke fill (if not using a group color encoding)</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    nodeStroke <span class="op">=</span> <span class="st">"#fff"</span><span class="op">,</span> <span class="co">// node stroke color</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    nodeStrokeWidth <span class="op">=</span> <span class="fl">1.5</span><span class="op">,</span> <span class="co">// node stroke width, in pixels</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    nodeStrokeWidth <span class="op">=</span> <span class="dv">2</span><span class="op">,</span> <span class="co">// node stroke width, in pixels</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    nodeStrokeOpacity <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> <span class="co">// node stroke opacity</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    nodeRadius <span class="op">=</span> <span class="dv">5</span><span class="op">,</span> <span class="co">// node radius, in pixels</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    nodeRadius <span class="op">=</span> <span class="dv">7</span><span class="op">,</span> <span class="co">// node radius, in pixels</span></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    nodeStrength<span class="op">,</span></span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    linkSource <span class="op">=</span> ({ source }) <span class="kw">=&gt;</span> source<span class="op">,</span> <span class="co">// given d in links, returns a node identifier string</span></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    linkTarget <span class="op">=</span> ({ target }) <span class="kw">=&gt;</span> target<span class="op">,</span> <span class="co">// given d in links, returns a node identifier string</span></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    linkStroke <span class="op">=</span> <span class="st">"#999"</span><span class="op">,</span> <span class="co">// link stroke color</span></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    linkStrokeOpacity <span class="op">=</span> <span class="fl">0.6</span><span class="op">,</span> <span class="co">// link stroke opacity</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    linkStrokeWidth <span class="op">=</span> <span class="fl">1.5</span><span class="op">,</span> <span class="co">// given d in links, returns a stroke width in pixels</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    linkStrokeWidth <span class="op">=</span> <span class="dv">2</span><span class="op">,</span> <span class="co">// given d in links, returns a stroke width in pixels</span></span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    linkStrokeLinecap <span class="op">=</span> <span class="st">"round"</span><span class="op">,</span> <span class="co">// link stroke linecap</span></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    linkStrength<span class="op">,</span></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    colors <span class="op">=</span> d3<span class="op">.</span><span class="at">schemeTableau10</span><span class="op">,</span> <span class="co">// an array of color strings, for the node groups</span></span>
@@ -373,14 +374,255 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>Here is a data frame containing the books I have read:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'gt' was built under R version 4.3.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'janitor' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'janitor'
+
+The following objects are masked from 'package:stats':
+
+    chisq.test, fisher.test</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#books_tbl |&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  gt() |&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  opt_interactive()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
 
 </main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
 
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"miserables = FileAttachment(\"miserables.json\").json()\r\n\r\nfunction ForceGraph(\r\n  {\r\n    nodes, // an iterable of node objects (typically [{id}, …])\r\n    links // an iterable of link objects (typically [{source, target}, …])\r\n  },\r\n  {\r\n    nodeId = (d) => d.id, // given d in nodes, returns a unique identifier (string)\r\n    nodeGroup, // given d in nodes, returns an (ordinal) value for color\r\n    nodeGroups, // an array of ordinal values representing the node groups\r\n    nodeTitle, // given d in nodes, a title string\r\n    nodeFill = \"currentColor\", // node stroke fill (if not using a group color encoding)\r\n    nodeStroke = \"#fff\", // node stroke color\r\n    nodeStrokeWidth = 1.5, // node stroke width, in pixels\r\n    nodeStrokeOpacity = 1, // node stroke opacity\r\n    nodeRadius = 5, // node radius, in pixels\r\n    nodeStrength,\r\n    linkSource = ({ source }) => source, // given d in links, returns a node identifier string\r\n    linkTarget = ({ target }) => target, // given d in links, returns a node identifier string\r\n    linkStroke = \"#999\", // link stroke color\r\n    linkStrokeOpacity = 0.6, // link stroke opacity\r\n    linkStrokeWidth = 1.5, // given d in links, returns a stroke width in pixels\r\n    linkStrokeLinecap = \"round\", // link stroke linecap\r\n    linkStrength,\r\n    colors = d3.schemeTableau10, // an array of color strings, for the node groups\r\n    width = 640, // outer width, in pixels\r\n    height = 400, // outer height, in pixels\r\n    invalidation // when this promise resolves, stop the simulation\r\n  } = {}\r\n) {\r\n  // Compute values.\r\n  const N = d3.map(nodes, nodeId).map(intern);\r\n  const LS = d3.map(links, linkSource).map(intern);\r\n  const LT = d3.map(links, linkTarget).map(intern);\r\n  if (nodeTitle === undefined) nodeTitle = (_, i) => N[i];\r\n  const T = nodeTitle == null ? null : d3.map(nodes, nodeTitle);\r\n  const G = nodeGroup == null ? null : d3.map(nodes, nodeGroup).map(intern);\r\n  const W =\r\n    typeof linkStrokeWidth !== \"function\"\r\n      ? null\r\n      : d3.map(links, linkStrokeWidth);\r\n  const L = typeof linkStroke !== \"function\" ? null : d3.map(links, linkStroke);\r\n\r\n  // Replace the input nodes and links with mutable objects for the simulation.\r\n  nodes = d3.map(nodes, (_, i) => ({ id: N[i] }));\r\n  links = d3.map(links, (_, i) => ({ source: LS[i], target: LT[i] }));\r\n\r\n  // Compute default domains.\r\n  if (G && nodeGroups === undefined) nodeGroups = d3.sort(G);\r\n\r\n  // Construct the scales.\r\n  const color = nodeGroup == null ? null : d3.scaleOrdinal(nodeGroups, colors);\r\n\r\n  // Construct the forces.\r\n  const forceNode = d3.forceManyBody();\r\n  const forceLink = d3.forceLink(links).id(({ index: i }) => N[i]);\r\n  if (nodeStrength !== undefined) forceNode.strength(nodeStrength);\r\n  if (linkStrength !== undefined) forceLink.strength(linkStrength);\r\n\r\n  const simulation = d3\r\n    .forceSimulation(nodes)\r\n    .force(\"link\", forceLink)\r\n    .force(\"charge\", forceNode)\r\n    .force(\"center\", d3.forceCenter())\r\n    .force('collide', d3.forceCollide(function(d) {\r\n    return d.id === \"j\" ? 20 : 10\r\n  }))\r\n    .on(\"tick\", ticked);\r\n\r\n  const svg = d3\r\n    .create(\"svg\")\r\n    .attr(\"width\", width)\r\n    .attr(\"height\", height)\r\n    .attr(\"viewBox\", [-width / 2, -height / 2, width, height])\r\n    .attr(\"style\", \"max-width: 100%; height: auto; height: intrinsic;\");\r\n\r\n  const link = svg\r\n    .append(\"g\")\r\n    .attr(\"stroke\", typeof linkStroke !== \"function\" ? linkStroke : null)\r\n    .attr(\"stroke-opacity\", linkStrokeOpacity)\r\n    .attr(\r\n      \"stroke-width\",\r\n      typeof linkStrokeWidth !== \"function\" ? linkStrokeWidth : null\r\n    )\r\n    .attr(\"stroke-linecap\", linkStrokeLinecap)\r\n    .selectAll(\"line\")\r\n    .data(links)\r\n    .join(\"line\");\r\n\r\n  const node = svg\r\n    .append(\"g\")\r\n    .attr(\"fill\", nodeFill)\r\n    .attr(\"stroke\", nodeStroke)\r\n    .attr(\"stroke-opacity\", nodeStrokeOpacity)\r\n    .attr(\"stroke-width\", nodeStrokeWidth)\r\n    // SM: change\r\n    // .selectAll(\"circle\")\r\n    .selectAll(\"g\")\r\n    .data(nodes)\r\n    // SM: change\r\n    // .join(\"circle\")\r\n    .join(\"g\")\r\n    // SM: change\r\n    // .attr(\"r\", nodeRadius)\r\n    .call(drag(simulation));\r\n\r\n  // SM: change\r\n  // append circle and text to node <g> (selection of all <g> elements corresponding to each node)\r\n  node.append(\"circle\").attr(\"r\", nodeRadius);\r\n  node\r\n    .append(\"text\")\r\n    .text(({ index: i }) => T[i])\r\n    .attr(\"fill\", \"gray\")\r\n    .attr(\"stroke\", \"none\")\r\n    .attr(\"font-size\", \"0.7em\");\r\n\r\n  if (W) link.attr(\"stroke-width\", ({ index: i }) => W[i]);\r\n  if (L) link.attr(\"stroke\", ({ index: i }) => L[i]);\r\n  if (G) node.attr(\"fill\", ({ index: i }) => color(G[i]));\r\n  if (T) node.append(\"title\").text(({ index: i }) => T[i]);\r\n  if (invalidation != null) invalidation.then(() => simulation.stop());\r\n\r\n  function intern(value) {\r\n    return value !== null && typeof value === \"object\"\r\n      ? value.valueOf()\r\n      : value;\r\n  }\r\n\r\n  function ticked() {\r\n    link\r\n      .attr(\"x1\", (d) => d.source.x)\r\n      .attr(\"y1\", (d) => d.source.y)\r\n      .attr(\"x2\", (d) => d.target.x)\r\n      .attr(\"y2\", (d) => d.target.y);\r\n\r\n    node.attr(\"transform\", (d) => `translate(${d.x} ${d.y})`);\r\n    // SM: change\r\n    // instead of moving the circle centers we transform the whole <g>\r\n    // .attr(\"cx\", d => d.x)\r\n    // .attr(\"cy\", d => d.y);\r\n  }\r\n\r\n  function drag(simulation) {\r\n    function dragstarted(event) {\r\n      if (!event.active) simulation.alphaTarget(0.3).restart();\r\n      event.subject.fx = event.subject.x;\r\n      event.subject.fy = event.subject.y;\r\n    }\r\n\r\n    function dragged(event) {\r\n      event.subject.fx = event.x;\r\n      event.subject.fy = event.y;\r\n    }\r\n\r\n    function dragended(event) {\r\n      if (!event.active) simulation.alphaTarget(0);\r\n      event.subject.fx = null;\r\n      event.subject.fy = null;\r\n    }\r\n\r\n    return d3\r\n      .drag()\r\n      .on(\"start\", dragstarted)\r\n      .on(\"drag\", dragged)\r\n      .on(\"end\", dragended);\r\n  }\r\n\r\n  return Object.assign(svg.node(), { scales: { color } });\r\n}\r\n\r\nchart = ForceGraph(miserables, {\r\n  nodeId: d => d.id,\r\n  nodeGroup: d => d.group,\r\n  nodeTitle: d => `${d.id}\\n${d.group}`,\r\n  linkStrokeWidth: l => Math.sqrt(l.value),\r\n  width,\r\n  height: 600,\r\n  invalidation // a promise to stop the simulation when the cell is re-run\r\n})\r\n\r\n"}]}
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"miserables = FileAttachment(\"miserables.json\").json()\n\nfunction ForceGraph(\n  {\n    nodes, // an iterable of node objects (typically [{id}, …])\n    links // an iterable of link objects (typically [{source, target}, …])\n  },\n  {\n    nodeId = (d) => d.id, // given d in nodes, returns a unique identifier (string)\n    nodeGroup, // given d in nodes, returns an (ordinal) value for color\n    nodeGroups, // an array of ordinal values representing the node groups\n    nodeTitle, // given d in nodes, a title string\n    nodeFill = \"currentColor\", // node stroke fill (if not using a group color encoding)\n    nodeStroke = \"#fff\", // node stroke color\n    nodeStrokeWidth = 2, // node stroke width, in pixels\n    nodeStrokeOpacity = 1, // node stroke opacity\n    nodeRadius = 7, // node radius, in pixels\n    nodeStrength,\n    linkSource = ({ source }) => source, // given d in links, returns a node identifier string\n    linkTarget = ({ target }) => target, // given d in links, returns a node identifier string\n    linkStroke = \"#999\", // link stroke color\n    linkStrokeOpacity = 0.6, // link stroke opacity\n    linkStrokeWidth = 2, // given d in links, returns a stroke width in pixels\n    linkStrokeLinecap = \"round\", // link stroke linecap\n    linkStrength,\n    colors = d3.schemeTableau10, // an array of color strings, for the node groups\n    width = 640, // outer width, in pixels\n    height = 400, // outer height, in pixels\n    invalidation // when this promise resolves, stop the simulation\n  } = {}\n) {\n  // Compute values.\n  const N = d3.map(nodes, nodeId).map(intern);\n  const LS = d3.map(links, linkSource).map(intern);\n  const LT = d3.map(links, linkTarget).map(intern);\n  if (nodeTitle === undefined) nodeTitle = (_, i) => N[i];\n  const T = nodeTitle == null ? null : d3.map(nodes, nodeTitle);\n  const G = nodeGroup == null ? null : d3.map(nodes, nodeGroup).map(intern);\n  const W =\n    typeof linkStrokeWidth !== \"function\"\n      ? null\n      : d3.map(links, linkStrokeWidth);\n  const L = typeof linkStroke !== \"function\" ? null : d3.map(links, linkStroke);\n\n  // Replace the input nodes and links with mutable objects for the simulation.\n  nodes = d3.map(nodes, (_, i) => ({ id: N[i] }));\n  links = d3.map(links, (_, i) => ({ source: LS[i], target: LT[i] }));\n\n  // Compute default domains.\n  if (G && nodeGroups === undefined) nodeGroups = d3.sort(G);\n\n  // Construct the scales.\n  const color = nodeGroup == null ? null : d3.scaleOrdinal(nodeGroups, colors);\n\n  // Construct the forces.\n  const forceNode = d3.forceManyBody();\n  const forceLink = d3.forceLink(links).id(({ index: i }) => N[i]);\n  if (nodeStrength !== undefined) forceNode.strength(nodeStrength);\n  if (linkStrength !== undefined) forceLink.strength(linkStrength);\n\n  const simulation = d3\n    .forceSimulation(nodes)\n    .force(\"link\", forceLink)\n    .force(\"charge\", forceNode)\n    .force(\"center\", d3.forceCenter())\n    .force('collide', d3.forceCollide(function(d) {\n    return d.id === \"j\" ? 20 : 10\n  }))\n    .on(\"tick\", ticked);\n\n  const svg = d3\n    .create(\"svg\")\n    .attr(\"width\", width)\n    .attr(\"height\", height)\n    .attr(\"viewBox\", [-width / 2, -height / 2, width, height])\n    .attr(\"style\", \"max-width: 100%; height: auto; height: intrinsic;\");\n\n  const link = svg\n    .append(\"g\")\n    .attr(\"stroke\", typeof linkStroke !== \"function\" ? linkStroke : null)\n    .attr(\"stroke-opacity\", linkStrokeOpacity)\n    .attr(\n      \"stroke-width\",\n      typeof linkStrokeWidth !== \"function\" ? linkStrokeWidth : null\n    )\n    .attr(\"stroke-linecap\", linkStrokeLinecap)\n    .selectAll(\"line\")\n    .data(links)\n    .join(\"line\");\n\n  const node = svg\n    .append(\"g\")\n    .attr(\"fill\", nodeFill)\n    .attr(\"stroke\", nodeStroke)\n    .attr(\"stroke-opacity\", nodeStrokeOpacity)\n    .attr(\"stroke-width\", nodeStrokeWidth)\n    // SM: change\n    // .selectAll(\"circle\")\n    .selectAll(\"g\")\n    .data(nodes)\n    // SM: change\n    // .join(\"circle\")\n    .join(\"g\")\n    // SM: change\n    // .attr(\"r\", nodeRadius)\n    .call(drag(simulation));\n\n  // SM: change\n  // append circle and text to node <g> (selection of all <g> elements corresponding to each node)\n  node.append(\"circle\").attr(\"r\", nodeRadius);\n  node\n    .append(\"text\")\n    .text(({ index: i }) => T[i])\n    .attr(\"fill\", \"gray\")\n    .attr(\"stroke\", \"none\")\n    .attr(\"font-size\", \"0.7em\");\n\n  if (W) link.attr(\"stroke-width\", ({ index: i }) => W[i]);\n  if (L) link.attr(\"stroke\", ({ index: i }) => L[i]);\n  if (G) node.attr(\"fill\", ({ index: i }) => color(G[i]));\n  if (T) node.append(\"title\").text(({ index: i }) => T[i]);\n  if (invalidation != null) invalidation.then(() => simulation.stop());\n\n  function intern(value) {\n    return value !== null && typeof value === \"object\"\n      ? value.valueOf()\n      : value;\n  }\n\n  function ticked() {\n    link\n      .attr(\"x1\", (d) => d.source.x)\n      .attr(\"y1\", (d) => d.source.y)\n      .attr(\"x2\", (d) => d.target.x)\n      .attr(\"y2\", (d) => d.target.y);\n\n    node.attr(\"transform\", (d) => `translate(${d.x} ${d.y})`);\n    // SM: change\n    // instead of moving the circle centers we transform the whole <g>\n    // .attr(\"cx\", d => d.x)\n    // .attr(\"cy\", d => d.y);\n  }\n\n  function drag(simulation) {\n    function dragstarted(event) {\n      if (!event.active) simulation.alphaTarget(0.3).restart();\n      event.subject.fx = event.subject.x;\n      event.subject.fy = event.subject.y;\n    }\n\n    function dragged(event) {\n      event.subject.fx = event.x;\n      event.subject.fy = event.y;\n    }\n\n    function dragended(event) {\n      if (!event.active) simulation.alphaTarget(0);\n      event.subject.fx = null;\n      event.subject.fy = null;\n    }\n\n    return d3\n      .drag()\n      .on(\"start\", dragstarted)\n      .on(\"drag\", dragged)\n      .on(\"end\", dragended);\n  }\n\n  return Object.assign(svg.node(), { scales: { color } });\n}\n\nchart = ForceGraph(miserables, {\n  nodeId: d => d.id,\n  nodeGroup: d => d.group,\n  nodeTitle: d => `${d.id}\\n${d.group}`,\n  linkStrokeWidth: l => Math.sqrt(l.value),\n  width,\n  height: 600,\n  invalidation // a promise to stop the simulation when the cell is re-run\n})\n\n"}]}
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
