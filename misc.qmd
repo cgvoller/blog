@@ -1,5 +1,6 @@
 ---
 title: "misc"
+css: misc.css
 execute:
   echo: false
 format:
@@ -10,12 +11,12 @@ format:
       margin-width: 200px
 ---
 
-I will be updating this page periodically to display a network diagram of the books I have read each calendar year. You might be asking why would I do that. The only answer I can think of is because it seems like a neat way to display data and to motivate me to read more (Note, the below network is merely an example but it is interactive!) :)
+I will be updating this page periodically to display a network diagram of the books I have read each calendar year. You might be asking why would I do that. The only answer I can think of is because it seems like a neat way to display data and to motivate me to read more (Note, the network below is not complete but it is interactive!) :)
 
 # 2024
 
 ```{ojs}
-miserables = FileAttachment("miserables.json").json()
+miserables = FileAttachment("books_24.json").json()
 
 function ForceGraph(
   {
@@ -32,17 +33,17 @@ function ForceGraph(
     nodeStrokeWidth = 2, // node stroke width, in pixels
     nodeStrokeOpacity = 1, // node stroke opacity
     nodeRadius = 7, // node radius, in pixels
-    nodeStrength,
+    nodeStrength=-100,
     linkSource = ({ source }) => source, // given d in links, returns a node identifier string
     linkTarget = ({ target }) => target, // given d in links, returns a node identifier string
     linkStroke = "#999", // link stroke color
     linkStrokeOpacity = 0.6, // link stroke opacity
-    linkStrokeWidth = 2, // given d in links, returns a stroke width in pixels
+    linkStrokeWidth = 3, // given d in links, returns a stroke width in pixels
     linkStrokeLinecap = "round", // link stroke linecap
-    linkStrength,
+    linkStrength=.1,
     colors = d3.schemeTableau10, // an array of color strings, for the node groups
     width = 640, // outer width, in pixels
-    height = 400, // outer height, in pixels
+    height = 600, // outer height, in pixels
     invalidation // when this promise resolves, stop the simulation
   } = {}
 ) {
@@ -94,11 +95,11 @@ function ForceGraph(
 
   const link = svg
     .append("g")
-    .attr("stroke", typeof linkStroke !== "function" ? linkStroke : null)
+    .attr("stroke", typeof linkStroke !== "function" ? linkStroke : 1.5)
     .attr("stroke-opacity", linkStrokeOpacity)
     .attr(
       "stroke-width",
-      typeof linkStrokeWidth !== "function" ? linkStrokeWidth : null
+      typeof linkStrokeWidth !== "function" ? linkStrokeWidth : 1.5
     )
     .attr("stroke-linecap", linkStrokeLinecap)
     .selectAll("line")
@@ -130,7 +131,7 @@ function ForceGraph(
     .text(({ index: i }) => T[i])
     .attr("fill", "gray")
     .attr("stroke", "none")
-    .attr("font-size", "0.7em");
+    .attr("font-size", "1em");
 
   if (W) link.attr("stroke-width", ({ index: i }) => W[i]);
   if (L) link.attr("stroke", ({ index: i }) => L[i]);
@@ -175,7 +176,6 @@ function ForceGraph(
       event.subject.fx = null;
       event.subject.fy = null;
     }
-
     return d3
       .drag()
       .on("start", dragstarted)
@@ -189,7 +189,7 @@ function ForceGraph(
 chart = ForceGraph(miserables, {
   nodeId: d => d.id,
   nodeGroup: d => d.group,
-  nodeTitle: d => `${d.id}\n${d.group}`,
+  nodeTitle: d => `${d.id}\n`,
   linkStrokeWidth: l => Math.sqrt(l.value),
   width,
   height: 600,
@@ -198,16 +198,24 @@ chart = ForceGraph(miserables, {
 
 ```
 
-Here is a data frame containing the books I have read:
+Here is a data frame containing the books I have read so far in 2024:
 
-```{r,echo=TRUE}
+```{r,eval=TRUE,warning=FALSE,message=FALSE}
 
 library(tidyverse)
 library(gt)
 library(janitor)
 
+df <- read.csv("Books_24.csv",check.names=FALSE)
 
-
+df |> 
+  gt()|>
+ # grand_summary_rows(  fns = list(
+ #      total = "sum"
+ #    ),
+ #    columns = c(`Number of pages`)
+ #  ) |>
+  opt_interactive(use_search=TRUE)
 #books_tbl |>
 #  gt() |>
 #  opt_interactive()

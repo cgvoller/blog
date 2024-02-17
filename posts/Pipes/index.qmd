@@ -4,7 +4,7 @@ subtitle: "The use of different pipes in R"
 author: "Corey Voller"
 date: "2024-02-11"
 date-modified: last-modified
-categories: [news, R]
+categories: [news, R, code]
 image: "image.jpg"
 bibliography: references.bib
 toc: true
@@ -24,17 +24,17 @@ library(cli)
 
 # Introduction
 
-# R pipe (|>)
+# R pipe (\|\>)
 
 The native pipe was introduced in R 4.1.0 and acts similarly to the forward pipe (`%>%`) in `magrittr`. Both pipes take in what is on the left-hand side and apply the function on the right-hand side. A number of pipes can be applied sequentially to give a chain of events.
 
 ## Why?
 
-In addition to the ability to easily chain events together it is relatively readable and interpretable in comparison to `data.table` or at least to me. That isn't to say I don't like `data.table`, it has its place and advantages with larger data sets but I do not often work with such data sets that the efficiency gain outweighs the trade-off between readability. It is important to balance such things and to consider QC'ers or the possibility of someone taking over a piece of code from you.  
+In addition to the ability to easily chain events together it is relatively readable and interpretable in comparison to `data.table` or at least to me. That isn't to say I don't like `data.table`, it has its place and advantages with larger data sets but I do not often work with such data sets that the efficiency gain outweighs the trade-off between readability. It is important to balance such things and to consider QC'ers or the possibility of someone taking over a piece of code from you.
 
 ## Native vs Magrittr
 
-There are some subtle differences between the native and magrittr pipe, including operational efficiency/speed, bracket usage, placeholder syntax, etc. For example, using rlang we can see what is happening under the hood between the two pipes. I.e.,
+There are some subtle differences between the native and magrittr pipe, including operational efficiency/speed, bracket usage, placeholder syntax, etc. For example, using `rlang` we can see what is happening under the hood between the two pipes. I.e.,
 
 The R native pipe:
 
@@ -52,19 +52,48 @@ rlang::expr(x %>% f())
 
 ```
 
-We can see that the native pipe is changing the structure (evaluating the expression as syntax) whereas the magrittr pipe is evaluated as a function call and thus is slightly slower.
+We can see that the native pipe is changing the structure (evaluating the expression as syntax) whereas the `magrittr` pipe is evaluated as a function call and thus is slightly slower.
 
 ```{r}
 
+microbenchmark::microbenchmark("Direct" = sqrt(4),
+                               "Native" = 4 |> sqrt(),
+                               "Magrittr" = 4 %>% sqrt())
+```
+
+and comparing with `data.table` and `aggregate`:
+
+```{r}
+set.seed(42)
+df <-
+  data.frame(Groups = rep(
+    c(
+      "Pembrolizumab",
+      "Nivolumab",
+      "Atezolizumab",
+      "ipilimumab",
+      "Placebo"
+    ),
+    100000
+  ),
+  times = rnorm(n = 10000, mean = 5, sd = 1))
+
+
+
 test <- microbenchmark::microbenchmark(
-(iris |>
-  group_by(Species) |>
-  summarise(across(everything(), sum))
-),
-(iris %>%
-  group_by(Species) %>%
-  summarise(across(everything(), sum))
-)
+  "|>" =
+    (df |>
+       group_by(Groups) |>
+       summarise(across(everything(), sum))),
+  "%>%" =
+    (df %>%
+       group_by(Groups) %>%
+       summarise(across(everything(), sum))),
+  "aggregate" =
+    (aggregate(. ~ Groups, df, sum)),
+  "data.table" =
+    (setDT(df)[,lapply(.SD, sum), by = "Groups"]),
+  times = 100
 )
 
 test
@@ -77,13 +106,13 @@ There is a wonderful answer [here](https://stackoverflow.com/questions/67633022/
 
 ## Magrittr
 
-### Forward pipe (%>%)
+### Forward pipe (%\>%)
 
-As briefly mentioned, the forward pipe from magrittr behaves similarly to the native pipe in R and allows you to apply potentially many functions in a sequence of code. It will take in values from the LHS and apply functions on the RHS. For example, here we are doing the following: 
+As briefly mentioned, the forward pipe from magrittr behaves similarly to the native pipe in R and allows you to apply potentially many functions in a sequence of code. It will take in values from the LHS and apply functions on the RHS. For example, here we are doing the following:
 
-- Select columns species, sepal length and petal length from iris
-- For newly subsetted data, replace dots with underscores and make names lower case
-- display the first 6 rows of the data frame
+-   Select columns species, sepal length and petal length from iris
+-   For the newly subsetted data, replace dots with underscores and make names lower case
+-   display the first 6 rows of the data frame
 
 ```{r}
 
@@ -94,7 +123,7 @@ iris %>%
 
 ```
 
-### Assignment pipe (%<>%)
+### Assignment pipe (%\<\>%)
 
 Typically after applying a series of functions we want to save the result. If you are writing back to the original object a quicker step than doing:
 
@@ -116,7 +145,7 @@ df %<>% filter(col<10)
 
 ```
 
-### Eager pipe (%!>%)
+### Eager pipe (%!\>%)
 
 The eager pipe evaluates the piped input at each step, you'll notice when the code below is run with the "lazy" forward pipe, messages appears in a backwards order.
 
@@ -168,7 +197,7 @@ main_fun()
 
 ```
 
-### Tee pipe (%T>%)
+### Tee pipe (%T\>%)
 
 A regular forward pipe will update the value of the expression on the LHS from expressions on the RHS and is performed sequentially. A useful, less well-known pipe is the 'Tee Pipe'. Similar to the Tee Pipe used by your local plumber to create a junction through a T shape, the Tee Pipe takes the input on the LHS and creates a junction to bypass functions which would normally terminate. A popular example is the use of `plot` with `colSums`
 
@@ -192,7 +221,6 @@ flowchart LR
   C --> E[colSums]
 ```
 
-
 ```{r}
 
 iris %>%
@@ -203,7 +231,6 @@ iris %>%
 ```
 
 This is a fairly trivial example but it does have its uses. By inserting a `print` command it can be used to help with debugging or we can save an object in the middle of pipes.
-
 
 It should also be noted that the use of curly brackets will give the same result.
 
@@ -229,7 +256,7 @@ iris %>%
 
 You might be wondering why this appears to not work, shouldn't this output the square root and the column sums? A forward pipe `%>%` will return the result having applied the function of the RHS, whereas the `%T>%` will return the original value of the LHS itself.
 
-## Zeallot pipe (%<-%)
+## Zeallot pipe (%\<-%)
 
 The [zeallot](https://cran.r-project.org/web/packages/zeallot/zeallot.pdf) package contains pipes which allow for multiple assignment. The operator allows for the user to assign from LHS to RHS or RHS to LHS. A simple example below shows how I can assign values to `x` and `y`.
 
@@ -243,35 +270,6 @@ c(x,y) %<-% c(3,4)
 cat("x = ", x, "\ny = ", y)
  
  
-```
-
-```{r}
-
-
-df1 <- 
-  data.frame(
-    subject_id = c("S001-0001", "S001-0002", "S001-0003"),
-    Trt = c("Pembrolizumab", "Pembrolizumab", "nivolumab"),
-    status = c(1,1,1),
-    age = c(38,64,24),
-    time = c(10,38,83)
-    )
-
-df2 <-
-  data.frame(
-    subject_id = c("S002-0001", "S002-0002", "S002-0003"),
-    Trt = c("atezolizumab ", "Pembrolizumab", "atezolizumab"),
-    status = c(1,1,1),
-    age = c(24,67,12),
-    time = c(34,92,145)
-    )
-
-# Assign
-purrr::map(mget(ls(pattern = '^df\\d+$')), as.data.table) %->%
-          c(df1, df2)
-
-
-
 ```
 
 ```{r,eval=TRUE}
@@ -304,15 +302,7 @@ list(df1,df2) %>%
 
 ```
 
-
-
-
-
-
 # Quiz
-
-
-
 
 ::: {.webex-check .webex-box}
 -   **Which pipe is equivalent to** $f(g(x))$*?*
@@ -325,8 +315,6 @@ q1 <- c(
    "%!>%",
    "%<%"
 )
-
-
 ```
 
 `r longmcq(q1)`
@@ -345,8 +333,7 @@ q2 <- c(
 
 `r longmcq(q2)`
 
-
--   **Which pipe can be used to assign a variable to part of, or to multiple objects?** 
+-   **Which pipe can be used to assign a variable to part of, or to multiple objects?**
 
 ```{r,echo=FALSE,results='asis'}
 q3 <- c(
@@ -359,7 +346,5 @@ q3 <- c(
 
 `r longmcq(q3)`
 
-- **The magrittr pipe is considered as syntax whereas the native pipe is considered a function call** `r torf(FALSE)`
-
-
+-   **The magrittr pipe is considered as syntax whereas the native pipe is considered a function call** `r torf(FALSE)`
 :::

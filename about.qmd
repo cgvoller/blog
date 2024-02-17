@@ -16,4 +16,4 @@ My name is Corey, I am currently working as a Statistician in the UK. I graduate
 
 This blog will be focused on all things statistics with a focus on medicine although not exclusively. The aim is to push my statistical knowledge, searching for new methods and to catalogue these. A lot of my day job is spent looking at static outputs so where possible I will try to showcase interactive and alternative ways to display data (3-d plots, dynamic figures, tables, etc). The opinions and thoughts expressed here are my own and do not represent anyone else (i.e., employer).
 
-This blog is currently written using [quarto](https://quarto.org/), an open-source publishing system. At the time of writing, I am using it within RStudio.
+This blog is currently written using [quarto](https://quarto.org/), an open-source publishing system. At the time of writing, I am using it within RStudio (R 4.3.0).
