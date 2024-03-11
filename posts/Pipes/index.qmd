@@ -4,10 +4,11 @@ subtitle: "The use of different pipes in R"
 author: "Corey Voller"
 date: "2024-02-11"
 date-modified: last-modified
-categories: [news, R, code]
-image: "image.jpg"
+categories: [R, code]
+image: "pipes.png"
 bibliography: references.bib
 toc: true
+toc-expand: 3
 ---
 
 ```{r,warning=FALSE,message=FALSE,echo=FALSE}
@@ -24,17 +25,15 @@ library(cli)
 
 # Introduction
 
+In addition to the ability to easily chain events together it is relatively readable and interpretable in comparison to `data.table` or at least to me. That isn't to say I don't like `data.table`, it has its place and advantages with larger data sets but I do not often work with such data sets that the efficiency gain outweighs the trade-off between readability. It is important to balance such things and to consider QC'ers or the possibility of someone taking over a piece of code from you.
+
 # R pipe (\|\>)
 
 The native pipe was introduced in R 4.1.0 and acts similarly to the forward pipe (`%>%`) in `magrittr`. Both pipes take in what is on the left-hand side and apply the function on the right-hand side. A number of pipes can be applied sequentially to give a chain of events.
 
-## Why?
-
-In addition to the ability to easily chain events together it is relatively readable and interpretable in comparison to `data.table` or at least to me. That isn't to say I don't like `data.table`, it has its place and advantages with larger data sets but I do not often work with such data sets that the efficiency gain outweighs the trade-off between readability. It is important to balance such things and to consider QC'ers or the possibility of someone taking over a piece of code from you.
-
 ## Native vs Magrittr
 
-There are some subtle differences between the native and magrittr pipe, including operational efficiency/speed, bracket usage, placeholder syntax, etc. For example, using `rlang` we can see what is happening under the hood between the two pipes. I.e.,
+There are some subtle differences between the native and `magrittr` pipe, including operational efficiency/speed, bracket usage, placeholder syntax, etc. For example, using `rlang` we can see what is happening under the hood between the two pipes. I.e.,
 
 The R native pipe:
 
@@ -56,7 +55,7 @@ We can see that the native pipe is changing the structure (evaluating the expres
 
 ```{r}
 
-microbenchmark::microbenchmark("Direct" = sqrt(4),
+microbenchmark::microbenchmark("sqrt(4)" = sqrt(4),
                                "Native" = 4 |> sqrt(),
                                "Magrittr" = 4 %>% sqrt())
 ```
@@ -108,7 +107,7 @@ There is a wonderful answer [here](https://stackoverflow.com/questions/67633022/
 
 ### Forward pipe (%\>%)
 
-As briefly mentioned, the forward pipe from magrittr behaves similarly to the native pipe in R and allows you to apply potentially many functions in a sequence of code. It will take in values from the LHS and apply functions on the RHS. For example, here we are doing the following:
+As briefly mentioned, the forward pipe from `magrittr` behaves similarly to the native pipe in R and allows you to apply potentially many functions in a sequence of code. It will take in values from the LHS and apply functions on the RHS. For example, here we are doing the following:
 
 -   Select columns species, sepal length and petal length from iris
 -   For the newly subsetted data, replace dots with underscores and make names lower case

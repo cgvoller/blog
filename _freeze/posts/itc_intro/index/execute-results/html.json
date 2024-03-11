@@ -1,0 +1,14 @@
+{
+  "hash": "5c87dbf6999972367d3162b0c0fa9ddf",
+  "result": {
+    "markdown": "---\ntitle: \"Indirect Treatment Comparison\"\nsubtitle: \"An introduction into ITCs and PAICs\"\nauthor: \"Corey Voller\"\ndate: \"2024-03-10\"\ndate-modified: last-modified\ncategories: [R, code]\nimage: \"image.jpg\"\ntoc: true\ntoc-expand: 3\n---\n\n::: {.cell}\n\n:::\n\n\n# Introduction\n\n## What is an Indirect Treatment Comparison (ITC)?\n\n![](SimpleNetwork.mp4)\n\n## Why do we need (ITCs)?\n\n## where are they used?\n\n# Bucher Indirect Treatment Comparion Methods\n\n# Anchored vs Unanchored\n\n# Methods for Population-adjusted indirect comparisons\n\n## Matching-Adjusted Indirect Comparison (MAIC)\n\n## Simulated Treatment Comparions\n\n## Network Meta-regression\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

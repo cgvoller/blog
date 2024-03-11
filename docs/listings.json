@@ -2,7 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/ipcwswitch/index.html",
+      "/posts/itc_intro/index.html",
+      "/posts/collaborative_working/index.html",
+      "/posts/intro_hes/index.html",
+      "/posts/version_control/index.html",
       "/posts/Pipes/index.html",
       "/posts/Standardising Scripts/index.html",
       "/posts/welcome/index.html"

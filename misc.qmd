@@ -1,5 +1,5 @@
 ---
-title: "misc"
+title: "Miscellaneous"
 css: misc.css
 execute:
   echo: false
@@ -11,7 +11,7 @@ format:
       margin-width: 200px
 ---
 
-I will be updating this page periodically to display a network diagram of the books I have read each calendar year. You might be asking why would I do that. The only answer I can think of is because it seems like a neat way to display data and to motivate me to read more (Note, the network below is not complete but it is interactive!) :)
+I will be updating this page periodically to display a network diagram of the books I have read each calendar year. You might be asking why would I do that. The only answer I can think of is because it seems like a neat way to display data and to motivate me to read more (Note, the network below is not complete but it is interactive using `JavaScript`) :)
 
 # 2024
 
@@ -29,18 +29,18 @@ function ForceGraph(
     nodeGroups, // an array of ordinal values representing the node groups
     nodeTitle, // given d in nodes, a title string
     nodeFill = "currentColor", // node stroke fill (if not using a group color encoding)
-    nodeStroke = "#fff", // node stroke color
-    nodeStrokeWidth = 2, // node stroke width, in pixels
-    nodeStrokeOpacity = 1, // node stroke opacity
+    nodeStroke = "currentColor", // node stroke color
+    nodeStrokeWidth = 0, // node stroke width, in pixels
+    nodeStrokeOpacity = 0.1, // node stroke opacity
     nodeRadius = 7, // node radius, in pixels
     nodeStrength=-100,
     linkSource = ({ source }) => source, // given d in links, returns a node identifier string
     linkTarget = ({ target }) => target, // given d in links, returns a node identifier string
-    linkStroke = "#999", // link stroke color
+    linkStroke = "#FFFFFF", // link stroke color
     linkStrokeOpacity = 0.6, // link stroke opacity
-    linkStrokeWidth = 3, // given d in links, returns a stroke width in pixels
+    linkStrokeWidth = 2, // given d in links, returns a stroke width in pixels
     linkStrokeLinecap = "round", // link stroke linecap
-    linkStrength=.1,
+    linkStrength=.05,
     colors = d3.schemeTableau10, // an array of color strings, for the node groups
     width = 640, // outer width, in pixels
     height = 600, // outer height, in pixels
@@ -128,8 +128,8 @@ function ForceGraph(
   node.append("circle").attr("r", nodeRadius);
   node
     .append("text")
-    .text(({ index: i }) => T[i])
-    .attr("fill", "gray")
+    .text(({ index: i }) => ("\u00A0\u00A0"+ T[i]))
+    //.attr("fill", "white")
     .attr("stroke", "none")
     .attr("font-size", "1em");
 
@@ -196,6 +196,8 @@ chart = ForceGraph(miserables, {
   invalidation // a promise to stop the simulation when the cell is re-run
 })
 
+
+
 ```
 
 Here is a data frame containing the books I have read so far in 2024:
@@ -215,7 +217,14 @@ df |>
  #    ),
  #    columns = c(`Number of pages`)
  #  ) |>
-  opt_interactive(use_search=TRUE)
+  opt_interactive(use_search=TRUE) %>% 
+  tab_options(
+    table.background.color = "#2e3440",
+    column_labels.font.size = px(10),
+    column_labels.font.weight = "bold",
+    table.font.color = "white",
+    table.font.size = px(12L)
+)
 #books_tbl |>
 #  gt() |>
 #  opt_interactive()

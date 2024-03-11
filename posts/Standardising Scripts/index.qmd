@@ -4,7 +4,7 @@ subtitle: "A guide to standardising scripts"
 author: "Corey Voller"
 date: "2024-01-28"
 toc: true
-categories: [news,R, code]
+categories: [R, code, Working Practices]
 image: "image.jpg"
 ---
 
@@ -38,7 +38,7 @@ Next, add in your custom snippet by typing 'snippet' followed by whatever name y
 
 To use your custom snippets, begin typing the name of the snippet into the script and you should see it appear with brackets `{snippet}` . Press 'tab' and it should load/execute the snippet.
 
-![](test.jpg){fig-align="center" width="628"}
+![](test.jpg){fig-align="center" width="737"}
 
 # Examples
 
@@ -67,7 +67,7 @@ This is a generic script template with a few features. Firstly, at the top I lik
 
 You'll also notice I use `## text ----`. The reason for this is it creates section headers which make navigating code easier.
 
-![](sections.JPG){fig-align="center" width="687"}
+![](sections.JPG){fig-align="center" width="745"}
 
 ```{r,eval=FALSE}
 
@@ -147,7 +147,7 @@ snippet header
 
 ```{r,eval=FALSE}
 
-snippet cctuconfigtemplate
+snippet configtemplate
 	## ─────────────────────────────────────────────────────────────────────────────
 	##
 	## Project: `r paste(gsub(".*STUDY FOLDER/","",getwd()))`

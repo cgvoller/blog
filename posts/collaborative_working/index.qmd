@@ -1,0 +1,52 @@
+---
+title: "Collaborative Working"
+subtitle: "A review into the tools for facilitating a collaborative working environment" 
+author: "Corey Voller"
+date: "2024-03-18"
+toc: true
+toc-expand: 3
+categories: [R, Working Practices]
+image: "image.jpg"
+---
+
+# Introduction
+
+The communication of ideas has interested me for a while, ever since I was a tutor I was always looking for alternative and interesting ways to visualise things. With the rise of remote working post-pandemic, it seems more important than ever to focus on creating a collaborative working environment which is also efficient when not working face-to-face. By doing so, and creating good guides, you minimise the time wasted from not having to refind solutions to previous problems as well as, a good and clear guide can avoid the same questions repeated. It is better to invest some time upfront now than to pay for it later on.
+
+It is also much more enjoyable and productive working when you feel part of a community than to awkwardly work disjointedly. In this post I will go through some different tools for enabling more collaborative working I have either worked with or seen implemented elsewhere. Some of these are very common and widely used, some less so.
+
+Tl;dr, It is all good and well having lots of ideas to improve working but I strongly believe in the necessity of communicating these ideas and making understandable, and dare I say, interesting. How well I've doing that here I don't know, I hope to improve though...
+
+# Creating an internal blog / website
+
+## Motivation
+
+This is something I stumbled across watching a video by Novo Nordisk when they were describing their steps to an R based FDA submission. I would definitely recommend giving it a watch. They also go through how they used docker, Azure DevOps and other products for working. Now, I can't remember too much about all the information that was in this blog/website (very helpful, I know) but the general idea was to have a website/blog where you can ask questions and host various R specific documents and guides. Essentially, trying to work more to create a community.
+
+I liked this idea in particular (enough that it played some role in the creation of this blog) as it created a centralised place where you can find information. There is nothing more frustrating than spending hours looking at how to do something only to find the information was buried in some folder nested in another folder somewhere far away from what you expected (as the Romanians say 'la mama naibii'). After-all, if you were trying to navigate your way through a building, is it easier to do so when there are a hundred unlabeled corridors and rooms or when you have a map?
+
+## Quarto
+
+Writing this in Quarto may seem biased but I do see the merit in creating a website/blog using Quarto. It is particularly useful if you're a team of R-users and want to create posts / guides using R but it can also handle other languages such as Python and JS, both of which I have used within this blog. I mean, it's easy to navigate and looks pretty right?...right?
+
+Some elements in the website I think are useful are:
+
+-   Blog posts with guides which are searchable in some way and split into categories. Not that I want to segregate users, but it can be useful to have dedicated sections for R and SAS users rather than to have them messily combined.
+
+    -   It may also be good to have who authored the guide, last modified/date written, and who maintains responsibility for that piece of work so that people know who to go to if they have questions.
+
+-   Create a link to find useful bits of code (this could be done by linking your company GitHub account) and socials.
+
+-   Enable comments to receive feedback and create discussions on pages. Chances are if someone has a comment, others have probably had a similar thought.
+
+-   Create a log of questions / answers forum.
+
+    -   This could be done in anyway you wish but I will discuss using stack overflow for teams in the upcoming sections.
+
+# Creating an organisation on GitHub
+
+# Stack overflow for Teams
+
+# Microsoft Teams
+
+Many people use this

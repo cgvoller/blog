@@ -2,11 +2,12 @@ project:
   type: website
   output-dir: docs
 website:
-  title: Mathemedician
+  title: MATHEMEDICIAN
   navbar:
     right:
     - about.qmd
-    - misc.qmd
+    - text: "Misc"
+      file: misc.qmd
     - icon: github
       href: https://github.com/cgvoller/
     - icon: linkedin
@@ -14,11 +15,12 @@ website:
 format:
   html:
     mermaid:
-      theme: neutral
+      theme: dark
     #code-block-bg: true
     #code-block-border-left: "#000000"
-    highlight-style: dracula
-    theme: lux
+    #code-block-border-left: true
+    highlight-style: nord
+    theme: slate
     css:
     - styles.css
     - include/webex.css
