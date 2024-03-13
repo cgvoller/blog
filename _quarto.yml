@@ -3,9 +3,13 @@ project:
   output-dir: docs
 website:
   title: MATHEMEDICIAN
+  #site-url: https://cvoller.co.uk
+  description: Blog
+  #repo-url: https://github.com/cgvoller/cvoller.co.uk
   navbar:
     right:
-    - about.qmd
+    - text: About 
+      href: about.qmd
     - text: "Misc"
       file: misc.qmd
     - icon: github
@@ -24,5 +28,6 @@ format:
     css:
     - styles.css
     - include/webex.css
+    smooth-scroll: true
     include-after-body: include/webex.js
 editor: visual

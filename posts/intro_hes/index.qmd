@@ -2,7 +2,7 @@
 title: "Getting to grips with Hospital Episode Statistics"
 subtitle: "An introduction into HES"
 author: "Corey Voller"
-date: "2024-03-03"
+date: "2024-03-12"
 categories: [R, code]
 image: "image.jpg"
 bibliography: references.bib
@@ -113,7 +113,7 @@ Data cleaning and Derivations can be found [here](https://digital.nhs.uk/data-an
 
 [Data dictionary](https://digital.nhs.uk/data-and-information/data-tools-and-services/data-services/hospital-episode-statistics/hospital-episode-statistics-data-dictionary)
 
-Some key Points:
+## Summary
 
 -   All FCE's in a spell will have the same admission date (`admidate`).
 

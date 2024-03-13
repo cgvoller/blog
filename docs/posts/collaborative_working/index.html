@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -68,6 +102,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -121,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Collaborative Working</h1>
-            <p class="subtitle lead">A review into the tools for facilitating a collaborative working environment</p>
+            <p class="subtitle lead">A short review into the tools for facilitating a collaborative working environment</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">R</div>
                 <div class="quarto-category">Working Practices</div>
@@ -164,9 +199,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
   <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
   </ul></li>
-  <li><a href="#creating-an-organisation-on-github" id="toc-creating-an-organisation-on-github" class="nav-link" data-scroll-target="#creating-an-organisation-on-github">Creating an organisation on GitHub</a></li>
-  <li><a href="#stack-overflow-for-teams" id="toc-stack-overflow-for-teams" class="nav-link" data-scroll-target="#stack-overflow-for-teams">Stack overflow for Teams</a></li>
-  <li><a href="#microsoft-teams" id="toc-microsoft-teams" class="nav-link" data-scroll-target="#microsoft-teams">Microsoft Teams</a></li>
+  <li><a href="#creating-an-organisation-on-github" id="toc-creating-an-organisation-on-github" class="nav-link" data-scroll-target="#creating-an-organisation-on-github">Creating an organisation on GitHub</a>
+  <ul class="collapse">
+  <li><a href="#personal-corporate-github-accounts" id="toc-personal-corporate-github-accounts" class="nav-link" data-scroll-target="#personal-corporate-github-accounts">Personal / Corporate GitHub accounts</a></li>
+  </ul></li>
+  <li><a href="#stack-overflow-for-teams" id="toc-stack-overflow-for-teams" class="nav-link" data-scroll-target="#stack-overflow-for-teams">Stack Overflow for Teams</a></li>
+  <li><a href="#microsoft-teams-creating-channels-and-teams" id="toc-microsoft-teams-creating-channels-and-teams" class="nav-link" data-scroll-target="#microsoft-teams-creating-channels-and-teams">Microsoft Teams: Creating Channels and Teams</a>
+  <ul class="collapse">
+  <li><a href="#the-good" id="toc-the-good" class="nav-link" data-scroll-target="#the-good">The good</a></li>
+  <li><a href="#the-not-so-good" id="toc-the-not-so-good" class="nav-link" data-scroll-target="#the-not-so-good">The not so good</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -187,13 +229,14 @@ ul.task-list li input[type="checkbox"] {
 <h1>Creating an internal blog / website</h1>
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-<p>This is something I stumbled across watching a video by Novo Nordisk when they were describing their steps to an R based FDA submission. I would definitely recommend giving it a watch. They also go through how they used docker, Azure DevOps and other products for working. Now, I can’t remember too much about all the information that was in this blog/website (very helpful, I know) but the general idea was to have a website/blog where you can ask questions and host various R specific documents and guides. Essentially, trying to work more to create a community.</p>
-<p>I liked this idea in particular (enough that it played some role in the creation of this blog) as it created a centralised place where you can find information. There is nothing more frustrating than spending hours looking at how to do something only to find the information was buried in some folder nested in another folder somewhere far away from what you expected (as the Romanians say ‘la mama naibii’). After-all, if you were trying to navigate your way through a building, is it easier to do so when there are a hundred unlabeled corridors and rooms or when you have a map?</p>
+<p>This is something I stumbled across watching a video by Novo Nordisk when they were describing their <a href="https://www.youtube.com/watch?v=t33dS17QHuA">journey to an R based FDA submission</a>. I definitely recommend giving it a watch. They also go through how they used <a href="https://www.docker.com/">docker</a> and <a href="https://azure.microsoft.com/en-gb/products/devops">Azure DevOps</a> in their workflow.</p>
+<p>A website/blog might be useful as a home to host various program specific documents, guides and a place for forums to ask questions. Essentially, trying to create a community.</p>
+<p>I liked this idea in particular (enough that it played some role in the creation of this blog) as it creates a centralised place to find information. There is nothing more frustrating than spending hours looking at how to do something only to find the information buried in some folder nested in another folder somewhere far away from what you expected (as the Romanians say ‘la mama naibii’). After-all, if you were trying to navigate your way through a building, is it easier to do so blindly wondering the hundred unlabeled corridors and rooms or when you have a map?</p>
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<p>Writing this in Quarto may seem biased but I do see the merit in creating a website/blog using Quarto. It is particularly useful if you’re a team of R-users and want to create posts / guides using R but it can also handle other languages such as Python and JS, both of which I have used within this blog. I mean, it’s easy to navigate and looks pretty right?…right?</p>
-<p>Some elements in the website I think are useful are:</p>
+<p>Writing this in Quarto may seem biased but I do see the merit in creating a website/blog using Quarto. It is useful if you’re a team of R-users and want to create posts / guides using R but it can also handle other languages such as Python and JS, both of which I have used within this blog. I mean, it’s easy to navigate and looks pretty right?…right?</p>
+<p>Some elements I think are useful to include are:</p>
 <ul>
 <li><p>Blog posts with guides which are searchable in some way and split into categories. Not that I want to segregate users, but it can be useful to have dedicated sections for R and SAS users rather than to have them messily combined.</p>
 <ul>
@@ -210,15 +253,72 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="creating-an-organisation-on-github" class="level1">
 <h1>Creating an organisation on GitHub</h1>
+<p>If you’re collaborating with several coders on a project, GitHub is a particularly useful site for facilitating this. By creating an organisation you can reflect your organisations structure through nested teams and collaborate with, view and mention members within your team. It is also very easy to create and experiment with new projects and by using this as a centralised place for storing codes/projects, it can act as a decent additional back-up system.</p>
+<p>There are additional functionalities which become more useful when you work with others on a project such as:</p>
+<ul>
+<li>Creating a task list/map to track progress and assign responsibilities.</li>
+<li>Create issues from a repository, comment, discussion or project.</li>
+<li>Easy to manage multiple people with different levels of power.</li>
+<li>Don’t have to worry about.</li>
+</ul>
+<section id="personal-corporate-github-accounts" class="level2">
+<h2 class="anchored" data-anchor-id="personal-corporate-github-accounts">Personal / Corporate GitHub accounts</h2>
+<div class="card text-white bg-secondary mb-3 callout callout-style-default callout-note callout-titled" title="Note from GitHub">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note from GitHub
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Most people will use one personal account for all their work on GitHub.com, including both open source projects and paid employment. If you’re currently using more than one personal account that you created for yourself, we suggest combining the accounts.</p>
+</div>
+</div>
+<p>GitHub does recommend having just one account for both person and professional use. Whether you decide to listen to this or not is up to you but nevertheless I would not mix personal and professional projects in any way shape or form. If you’re going to use your personal account then you should use your work email as a secondary email on your GitHub account and the organisation should have an SSO set up.</p>
+<p>You can also commit <a href="https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization">on behalf of an organisation</a> by doing the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"Some commit message"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>on<span class="sc">-</span>behalf<span class="sc">-</span>of<span class="sc">:</span> <span class="er">@</span>ORG NAME<span class="sc">@</span>ORGANISATION.COM</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You need to create two newlines between the <code>commit</code> and <code>on-behalf-of</code> command. The commmit, message and badge will then appear on GitHub when you next push.</p>
+<p>When it comes the time to leave the company then you should do the following:</p>
+<ul>
+<li>unverify the company email address.</li>
+<li>change the primary address to your personal email.</li>
+<li>remove any references to the company/organisation.</li>
+<li>remove yourself as a member from the organisation and transfer ownerships to another person.</li>
+<li>Check 2FA methods can be accessed using your personal accounts not company.</li>
+</ul>
+</section>
 </section>
 <section id="stack-overflow-for-teams" class="level1">
-<h1>Stack overflow for Teams</h1>
+<h1>Stack Overflow for Teams</h1>
+<p>I’m sure many programmers are already familiar with the use of stack overflow, it is a popular platform where users can ask/answer questions relating to any number of topics. However, may be unaware that there is a <a href="https://stackoverflowteams.com/">Stack Overflow for Teams</a> which has several potential advantages:</p>
+<ul>
+<li>It is also free to create a team provided you have no more than 50 team members in the group.</li>
+<li>It reduced the burden of any one person having to answer a question</li>
+<li>Creates a log of questions and answers over time which reduces time spent re-finding answers over and over again.</li>
+<li>Can be integrated with other programs such as Microsoft Teams, GitHub and Slack.</li>
+</ul>
 </section>
-<section id="microsoft-teams" class="level1">
-<h1>Microsoft Teams</h1>
-<p>Many people use this</p>
+<section id="microsoft-teams-creating-channels-and-teams" class="level1">
+<h1>Microsoft Teams: Creating Channels and Teams</h1>
+<section id="the-good" class="level2">
+<h2 class="anchored" data-anchor-id="the-good">The good</h2>
+<p>On a few occasions I have encountered the issue of “The document is locked for editing by another user”. Whether this be a colleague working on the document or simply left if it open, it can be an inconvenience and slow down your productivity. An advantage of Teams (or Google docs/Overleaf) is the ability to collaborate on documents and make edits at the same time as another person.</p>
+<p>Microsoft teams also allows you to create a number of teams. For example, ‘Statistics’ team or ‘R-users’. Within a team, channels can be made so that conversations/topics can have their own designated area (Which I much prefer to keep things separate as it helps when trying to locate things in the future).</p>
+<p>Finally, general communication through email can be tedious. I’ve always found it much easier talking and discussing things in a group either via Teams chat or a call. Additionally, having dedicated channels/places for discussion on a number of projects is much easier from an organisational point of view (who wants a hundred emails and to be continuously cc’d into long email chains?).</p>
+</section>
+<section id="the-not-so-good" class="level2">
+<h2 class="anchored" data-anchor-id="the-not-so-good">The not so good</h2>
+<p>Some correspondences are better suited to email, particularly if you want to be sure of a trail. Depending on your organisational settings sometimes messages disappear after a certain period of time or you may find yourself having to re-upload documents in a group chat. Admittedly, these are fairly minor inconviences.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1048,4 +1148,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

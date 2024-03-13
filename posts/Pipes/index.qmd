@@ -25,7 +25,9 @@ library(cli)
 
 # Introduction
 
-In addition to the ability to easily chain events together it is relatively readable and interpretable in comparison to `data.table` or at least to me. That isn't to say I don't like `data.table`, it has its place and advantages with larger data sets but I do not often work with such data sets that the efficiency gain outweighs the trade-off between readability. It is important to balance such things and to consider QC'ers or the possibility of someone taking over a piece of code from you.
+Named after a famous artist Rene Magritte, who painted the famous 'ceci n'est pas une pipe' image, the `magrittr` / `dplyr` packages contains a suite of functions using pipes for data manipulation.
+
+I had a friend at university who frequently bought pipe tobacco as apparently it is much cheaper than regular tobacco. Anyway, much like his smoking habit, `dplyr` can chain events together. In addition to this, it is relatively readable and interpretable in comparison to `data.table` or at least to me. That isn't to say I don't like `data.table`, it has its place and advantages with larger data sets but I do not often work with such data sets that the efficiency gain outweighs the trade-off between readability. It is important to balance such things and to consider QC'ers or the possibility of someone taking over a piece of code from you.
 
 # R pipe (\|\>)
 
@@ -60,46 +62,9 @@ microbenchmark::microbenchmark("sqrt(4)" = sqrt(4),
                                "Magrittr" = 4 %>% sqrt())
 ```
 
-and comparing with `data.table` and `aggregate`:
-
-```{r}
-set.seed(42)
-df <-
-  data.frame(Groups = rep(
-    c(
-      "Pembrolizumab",
-      "Nivolumab",
-      "Atezolizumab",
-      "ipilimumab",
-      "Placebo"
-    ),
-    100000
-  ),
-  times = rnorm(n = 10000, mean = 5, sd = 1))
-
-
-
-test <- microbenchmark::microbenchmark(
-  "|>" =
-    (df |>
-       group_by(Groups) |>
-       summarise(across(everything(), sum))),
-  "%>%" =
-    (df %>%
-       group_by(Groups) %>%
-       summarise(across(everything(), sum))),
-  "aggregate" =
-    (aggregate(. ~ Groups, df, sum)),
-  "data.table" =
-    (setDT(df)[,lapply(.SD, sum), by = "Groups"]),
-  times = 100
-)
-
-test
-
-```
-
 There is a wonderful answer [here](https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-native-pipe-and-the-magrittr-pipe) which goes through in more detail some of the differences.
+
+Generally speaking, if you're *really* concerned about speed you wouldn't use `dplyr`.
 
 # Alternative pipes
 
@@ -253,7 +218,7 @@ iris %>%
   colSums
 ```
 
-You might be wondering why this appears to not work, shouldn't this output the square root and the column sums? A forward pipe `%>%` will return the result having applied the function of the RHS, whereas the `%T>%` will return the original value of the LHS itself.
+You might be wondering why this appears to not work, shouldn't this output the square root and the column sums? It turns out that it works only when one of the operations does not return a value e.g. `plot()` and `print()` are used to generate outputs and therefore the function themselves returns `NULL`.
 
 ## Zeallot pipe (%\<-%)
 

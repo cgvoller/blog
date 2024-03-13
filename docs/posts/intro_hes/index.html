@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Corey Voller">
-<meta name="dcterms.date" content="2024-03-03">
+<meta name="dcterms.date" content="2024-03-12">
 
 <title>MATHEMEDICIAN - Getting to grips with Hospital Episode Statistics</title>
 <style>
@@ -68,6 +68,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -142,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 3, 2024</p>
+        <p class="date">March 12, 2024</p>
       </div>
     </div>
     
@@ -163,11 +164,21 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#annual-hes-data-set" id="toc-annual-hes-data-set" class="nav-link" data-scroll-target="#annual-hes-data-set">Annual HES data set</a>
   <ul class="collapse">
   <li><a href="#the-different-data-sets-of-hes" id="toc-the-different-data-sets-of-hes" class="nav-link" data-scroll-target="#the-different-data-sets-of-hes">The different data sets of HES</a></li>
+  <li><a href="#the-case-for-hes-in-research" id="toc-the-case-for-hes-in-research" class="nav-link" data-scroll-target="#the-case-for-hes-in-research">The case for HES in research</a></li>
+  <li><a href="#considerations-and-issues-of-hes" id="toc-considerations-and-issues-of-hes" class="nav-link" data-scroll-target="#considerations-and-issues-of-hes">Considerations and issues of HES</a></li>
   <li><a href="#definition-of-an-episode-and-spell" id="toc-definition-of-an-episode-and-spell" class="nav-link" data-scroll-target="#definition-of-an-episode-and-spell">Definition of an Episode and Spell</a></li>
+  <li><a href="#examples-of-fces-spells" id="toc-examples-of-fces-spells" class="nav-link" data-scroll-target="#examples-of-fces-spells">Examples of FCE’s &amp; Spells</a></li>
   </ul></li>
   <li><a href="#data-cleaning-derived-variables" id="toc-data-cleaning-derived-variables" class="nav-link" data-scroll-target="#data-cleaning-derived-variables">Data Cleaning &amp; Derived Variables</a>
   <ul class="collapse">
   <li><a href="#id-change---august-2021-update" id="toc-id-change---august-2021-update" class="nav-link" data-scroll-target="#id-change---august-2021-update">ID change - August 2021 Update</a></li>
+  </ul></li>
+  <li><a href="#coding-with-hes" id="toc-coding-with-hes" class="nav-link" data-scroll-target="#coding-with-hes">Coding with HES</a>
+  <ul class="collapse">
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#cipssuperspells" id="toc-cipssuperspells" class="nav-link" data-scroll-target="#cipssuperspells">CIPS/Superspells</a></li>
+  <li><a href="#hes-analysis-steps" id="toc-hes-analysis-steps" class="nav-link" data-scroll-target="#hes-analysis-steps">HES analysis steps</a></li>
+  <li><a href="#small-numbers" id="toc-small-numbers" class="nav-link" data-scroll-target="#small-numbers">Small Numbers</a></li>
   </ul></li>
   <li><a href="#useful-links" id="toc-useful-links" class="nav-link" data-scroll-target="#useful-links">Useful Links</a></li>
   </ul>
@@ -196,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="data-publication" class="level1">
 <h1>Data publication</h1>
 <p>At its core, the HES data set is to facilitate hospital reimbursement from the NHS for the care they provide. It is important to note that a <strong>secondary use</strong> (and not primary) is for HES to be used for <em>research</em>. Whilst there are steps to clean and have some data quality, there are concerns by the research community regarding the quality, completeness and coverage of HES records.</p>
-<p>Results from a bibliometric analysis of 520 studies extracted from PubMed showed the growth of HES data usage in publications from 1996 to 2014 with 1 publication found in 1996 and 99 found in 2014.@ref(Chaudhry329)</p>
+<p>Results from a bibliometric analysis of 520 studies extracted from PubMed showed the growth of HES data usage in publications from 1996 to 2014 with 1 publication found in 1996 and 99 found in 2014.@ref(Chaudhry329) It is likely for this trend to continue as HES offers a vast amount of information about the population and is being linked to other national datasets such as ONS mortality resulting in increased applicability e.g.&nbsp;survival analysis. However, HES isn’t without issues as it will be discussed later.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="hes_pubs.jpg" class="img-fluid figure-img" width="815"></p>
@@ -231,6 +242,12 @@ ul.task-list li input[type="checkbox"] {
 <li><p>The HES-ONS linked mortality dataset is created by linking mortality data from the Office for National Statistics (ONS) to patient information in HES. The HES database captures information on deaths only if they occurred in hospital.</p></li>
 </ul>
 </section>
+<section id="the-case-for-hes-in-research" class="level2">
+<h2 class="anchored" data-anchor-id="the-case-for-hes-in-research">The case for HES in research</h2>
+</section>
+<section id="considerations-and-issues-of-hes" class="level2">
+<h2 class="anchored" data-anchor-id="considerations-and-issues-of-hes">Considerations and issues of HES</h2>
+</section>
 <section id="definition-of-an-episode-and-spell" class="level2">
 <h2 class="anchored" data-anchor-id="definition-of-an-episode-and-spell">Definition of an Episode and Spell</h2>
 <ul>
@@ -245,6 +262,9 @@ ul.task-list li input[type="checkbox"] {
 <p>However, a Continuous Inpatient Spell (CIP) is defined to encompass multiple spells.</p>
 <p>Diagnostic and procedure coding is entered by clinical coders written by the clinicians, when junior doctors are being trained they are reminded of the importance to get it correct on discharge summaries and to be clear on diagnosis of patients as there rules on what can/can’t be coded. I.e., probable diabetes cannot be coded, only definitive diagnoses can be.</p>
 </section>
+<section id="examples-of-fces-spells" class="level2">
+<h2 class="anchored" data-anchor-id="examples-of-fces-spells">Examples of FCE’s &amp; Spells</h2>
+</section>
 </section>
 <section id="data-cleaning-derived-variables" class="level1">
 <h1>Data Cleaning &amp; Derived Variables</h1>
@@ -253,10 +273,79 @@ ul.task-list li input[type="checkbox"] {
 <p>Data cleaning and Derivations can be found <a href="https://digital.nhs.uk/data-and-information/data-tools-and-services/data-services/hospital-episode-statistics/hospital-episode-statistics-data-dictionary">here</a>. From 2021, the patient identified in HES (HESID) changed to Master Person Service (MPS).</p>
 </section>
 </section>
+<section id="coding-with-hes" class="level1">
+<h1>Coding with HES</h1>
+<p><a href="https://digital.nhs.uk/data-and-information/data-tools-and-services/data-services/hospital-episode-statistics/hospital-episode-statistics-data-dictionary">Data dictionary</a></p>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<ul>
+<li><p>All FCE’s in a spell will have the same admission date (<code>admidate</code>).</p></li>
+<li><p><code>epistart</code> and <code>epiend</code> denote the start and end dates of an episode. <code>epiend</code> will be missing for unfinished episodes.</p></li>
+<li><p><code>epiorder</code> denotes the order of episode within a spell</p></li>
+<li><p><code>admimeth</code> denotes the admission method and is useful for determining which admissions are planned vs unplanned e.g.&nbsp;Elective (booked/waiting list), emergency, transferred from another hospital, delivery/new baby.</p></li>
+</ul>
+<p>According to the HES data analysis guide, it is recommended to remove unfinished episodes. The reason for this is, if you do not, you will have duplicates as unfinished episodes will also show in the next financial year as finished episodes. <code>epistat</code> is used to define an episode’s status, a finished episode is coded using the <code>epistat = 3</code> meanwhile unfinished episodes are <code>epistat = 1</code> .</p>
+<p>Variables relating to discharge such as date (<code>disdate</code>), method (<code>dismeth</code>), destination (<code>disdest</code>), etc will only be recorded for the last episode of a spell. Therefore, if you wish to make this complete within a spell, you will need to perform some R trickery.</p>
+</section>
+<section id="cipssuperspells" class="level2">
+<h2 class="anchored" data-anchor-id="cipssuperspells">CIPS/Superspells</h2>
+<p>As briefly mentioned, a CIPS (also known as a superspell) is used to define one continuous period of care within NHS hospitals. An additional complexity when using this is the need to define transfers between hospitals. This can be done by looking at the admission date and discharge dates (allowing for possibly 1 day gap as they may be discharged/admitted around midnight on a given day which looks like a gap but isn’t). Columns such as admission method <code>admimeth</code>, admission source <code>admisorc</code> and discharge destination <code>disdest</code> can be used to work out transfers.</p>
+<p>Why is that important? It is more important if you’re analysing your data at a hospital level as you will need to determine which hospital to attribute your outcomes to. A patient could have had a procedure at one hospital but recovering in another, for example.</p>
+<p>Documentation into the methodology can be found <a href="https://webarchive.nationalarchives.gov.uk/ukgwa/20180307232845tf_/http://content.digital.nhs.uk/media/11859/Provider-Spells-Methodology/pdf/Spells_Methodology.pdf">here</a></p>
+</section>
+<section id="hes-analysis-steps" class="level2">
+<h2 class="anchored" data-anchor-id="hes-analysis-steps">HES analysis steps</h2>
+<p>HES analysis guide can be found <a href="https://digital.nhs.uk/data-and-information/data-tools-and-services/data-services/hospital-episode-statistics/users-uses-and-access-to-hospital-episode-statistics">here</a>.</p>
+<p>Summary of steps:</p>
+<ul>
+<li>Initial data checks
+<ul>
+<li>Are all the requested variables in the data?</li>
+<li>How much of the data is missing</li>
+</ul></li>
+<li>Data cleaning
+<ul>
+<li>Check date columns</li>
+<li>Remove duplicates and unfinished episodes</li>
+<li>Link admissions into spells/CIPS</li>
+<li>If you’re using linked data do a sense check e.g.&nbsp;Do rates over time make sense</li>
+<li>Derive analysis variables</li>
+</ul></li>
+<li>Analyse results
+<ul>
+<li>Look at sensitivity analysis and tests robustness. I.e. results are not driven by odd artifacts resulting from the use of HES</li>
+</ul></li>
+<li>Validate
+<ul>
+<li>Ideally comparing to published data or experts (e.g.&nbsp;clinicians)</li>
+</ul></li>
+</ul>
+</section>
+<section id="small-numbers" class="level2">
+<h2 class="anchored" data-anchor-id="small-numbers">Small Numbers</h2>
+<p>A small number in HES is defined as 1 - 5 which may allow for the identification of individual patients or a hospital consultant. When publishing or releasing HES data, cell values from 1-5 should be <em>omitted</em> to prevent possible identification. A note can be added at the bottom such as:</p>
+<div class="card text-white bg-secondary mb-3 callout callout-style-simple callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Small Numbers table text
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“* in this table denotes a figure between 1 and 5”</p>
+</div>
+</div>
+<p>The small numbers guidance also extends to restrictions on certain ICD/OPCS codings which are sensitive (e.g.&nbsp;Abortions, HIV, IVF, STI’s). Advice should be sought from HSCIC if there are any doubts.</p>
+</section>
+</section>
 <section id="useful-links" class="level1">
 <h1>Useful Links</h1>
 <ul>
 <li><p><a href="https://digital.nhs.uk/data-and-information/data-tools-and-services/data-services/hospital-episode-statistics">HES data and information (With data dictionary)</a></p></li>
+<li><p><a href="https://digital.nhs.uk/data-and-information/data-tools-and-services/data-services/hospital-episode-statistics/users-uses-and-access-to-hospital-episode-statistics">HES data analysis guide</a></p></li>
+<li><p><a href="https://webarchive.nationalarchives.gov.uk/ukgwa/20180307232845tf_/http://content.digital.nhs.uk/media/11859/Provider-Spells-Methodology/pdf/Spells_Methodology.pdf">Spell Methodology</a></p></li>
 <li><p><a href="https://digital.nhs.uk/data-and-information/data-tools-and-services/data-services/hospital-episode-statistics/hes-processing-cycle-and-data-quality-checks">HES processing and data quality checks</a></p></li>
 <li><p><a href="https://digital.nhs.uk/services/secondary-uses-service-sus">Secondary Uses Service</a></p></li>
 <li><p><a href="https://www.england.nhs.uk/costing-in-the-nhs/national-cost-collection/">National Cost Collection for the NHS</a></p></li>
@@ -1094,4 +1183,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

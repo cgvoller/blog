@@ -1,0 +1,30 @@
+---
+title: "Visualising R data manipulations in Python"
+subtitle: "An experiment in using animation to understand dplyr functions" 
+author: "Corey Voller"
+date: "2024-03-18"
+toc: true
+toc-expand: 3
+categories: [R, Working Practices]
+image: "image.jpg"
+---
+
+# Introduction
+
+I've always been a visual learner finding that watching videos, reading posters and looking at diagrams to yield the most understanding and ability to recall information. In this post, I will be looking at ways to visualise `dplyr` functions with the possible extension to general data manipulation. There's no real need for this, arguably it is just an excuse to make some animations using `python` but I do think testing new ways to convey information is at the very least worth a shot.
+
+# Basic
+
+## Select
+
+![](vids/DataframeFilters.mp4)
+
+## Rename
+
+## Filter
+
+# Advanced
+
+## Pivots
+
+## Joins

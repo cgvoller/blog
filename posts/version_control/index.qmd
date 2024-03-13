@@ -1,5 +1,5 @@
 ---
-title: "Version Control with Git R in R"
+title: "Version Control with Git in R"
 subtitle: "Introduction to using version control in RStudio with Git"
 author: "Corey Voller"
 date: "2024-02-28"
@@ -80,7 +80,7 @@ df <- data.frame("Git Command"=c("git init",
                    "add files",
                    "Snapshot currently stages changes, within the quotes it is good practice to put a clear/meaningful message",
                    "Point to an existing repo and make a copy in a new/different location",
-                   "Combination of fetch and merge, pulls all changes from a remote repository into the current brance",
+                   "Combination of fetch and merge, pulls all changes from a remote repository into the current branch",
                    "Publish changes",
                    "Create a separate version of the main repository",
                    "Incorporate changes i.e. from a branch you've been working on",
@@ -153,7 +153,7 @@ Following the book analogy, I can think of it as saying 'I should start to inclu
 
 Saves a snapshot of your repository. Git messages are a way to communicate the changes that have been made as well as *why*. You need to include sufficient information in your commit messages. There's many passionate devs arguing the length of commit messages and despise the use of `-m`.
 
-There's the viewpoint of the need for massive messages as a sign of you're not committing enough and it should be succinct so people don't just gloss over it. On the other hand, if you're taking over a new project, come back from a long holiday or made significant changes, added a feature/fixed a bug which needs a sufficient explanation of *what* and *why* you'll want longer messages.
+There's the viewpoint of the need for massive messages as a sign of you're not committing enough, it should be succinct so that people don't just gloss over it. On the other hand, if you're taking over a new project, come back from a long holiday or just generally made significant changes whether that is adding a new feature/fixing a bug and needs a sufficient explanation of *what* and *why,* you'll want longer messages.
 
 I lean towards advocating the longer, more detailed messages. I would rather be completely explicit and slightly overkill than to provide next to no detail.
 
@@ -193,6 +193,8 @@ gitGraph
 ```
 
 ### Push
+
+`git push` is commonly used when you're using GitHub. You'll want to commit your changes and then push/upload files from your local repository to GitHub.
 
 The book is looking pretty good, I'll send the latest version to a librarian for safe keeping.
 
