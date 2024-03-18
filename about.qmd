@@ -93,7 +93,7 @@ This blog will be focused primarily on statistics with an emphasis in medical ap
 
 Details about the blog if you're interested in creating your own:
 
--   This blog is currently written using [quarto](https://quarto.org/) docs, an open-source publishing system (Think Rmarkdown on steroids, with added functionality e.g. ability to handle multiple languages).
+-   This blog is currently written using [quarto](https://quarto.org/) docs, an open-source publishing system (Think Rmarkdown on steroids, with added functionality e.g. ability to handle multiple languages) and html/css.
 
 -   It is hosted using [github pages](https://pages.github.com/) (Although, I've heard good things about Netlify).
 

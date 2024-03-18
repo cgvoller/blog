@@ -2,15 +2,19 @@ project:
   type: website
   output-dir: docs
 website:
-  title: MATHEMEDICIAN
-  #site-url: https://cvoller.co.uk
-  description: Blog
-  #repo-url: https://github.com/cgvoller/cvoller.co.uk
+  title: Corey Voller
+  search:
+    location: navbar
+    type: textbox
+  site-url: https://cvoller.co.uk
+  repo-url: https://github.com/cgvoller/cvoller.co.uk
   navbar:
     right:
     - text: About 
       href: about.qmd
-    - text: "Misc"
+    - text: Blog
+      href: posts.qmd
+    - text: "Miscellaneous"
       file: misc.qmd
     - icon: github
       href: https://github.com/cgvoller/

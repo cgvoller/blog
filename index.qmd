@@ -10,17 +10,26 @@ format:
     self-contained: true
 ---
 
-::: {.grid}
 
+
+
+
+::: grid
 ::: {.g-col-12 .g-col-md-4}
-<div class="card h-100" id="card-second-color">
-<div class="card-body d-flex flex-column">
-<p class="card-text">I write about some of the things I find and log them here.</p>
-<div style="margin-top: auto;"><a href="posts.qmd" class="card-link second-color-link heading-font">BLOG</a></div>
-</div>
-</div>
+::: {#card-second-color .card .h-100}
+::: {.card-body .d-flex .flex-column}
+<p class="card-text">
+
+I write about some of the things I find and log them here.
+
+</p>
+
+::: {style="margin-top: auto;"}
+<a href="posts.qmd" class="card-link second-color-link heading-font">BLOG</a>
+:::
+:::
+:::
+:::
 :::
 
-
-:::
----
+------------------------------------------------------------------------
