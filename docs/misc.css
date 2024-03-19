@@ -1,4 +1,4 @@
-/* css styles */
+/* css styles background-color: #55595c; */
 .title {
   color: white;
 }
@@ -15,7 +15,7 @@ div.quarto-post .listing-categories .listing-category {
   font-size: .65em;
   padding-left: .5em;
   padding-right: .5em;
-  padding-top: .15em;
+  padding-top: .15em; 
   padding-bottom: .15em;
   cursor: pointer;
   margin-right: 4px;
@@ -24,6 +24,6 @@ div.quarto-post .listing-categories .listing-category {
 
 
 .cell-output {
-  background-color: #2e3440;
+  background-color: #272b30;
   border-radius: 4px;
 }

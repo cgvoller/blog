@@ -225,7 +225,7 @@ gitGraph
 
 ### Checkout
 
-Here I commit on my branch 'feat' and then use checkout to go back to main. I can then create another branch 'bug' from main, do some commits, and switch back to main again. The checkout function allows you to swap between the difference branches.
+Here I commit on my branch 'feat' and then use checkout to go back to main. I can then create another branch 'bug' from main, do some commits, and switch back to main again. The checkout function allows you to swap between the different branches.
 
 ```{mermaid}
 

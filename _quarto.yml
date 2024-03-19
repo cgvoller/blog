@@ -10,11 +10,11 @@ website:
   repo-url: https://github.com/cgvoller/cvoller.co.uk
   navbar:
     right:
-    - text: About 
+    - text: "?cvoller::about"
       href: about.qmd
-    - text: Blog
+    - text: "blog()"
       href: posts.qmd
-    - text: "Miscellaneous"
+    - text: "miscellaneous()"
       file: misc.qmd
     - icon: github
       href: https://github.com/cgvoller/

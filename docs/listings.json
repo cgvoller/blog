@@ -2,7 +2,6 @@
   {
     "listing": "/posts.html",
     "items": [
-      "/posts/itc_intro/index.html",
       "/posts/collaborative_working/index.html",
       "/posts/dplyr_using_python/index.html",
       "/posts/intro_hes/index.html",

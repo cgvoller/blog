@@ -11,7 +11,7 @@ format:
       margin-width: 200px
 ---
 
-I will be updating this page periodically to display a network diagram of the books I have read each calendar year. You might be asking why would I do that. The only answer I can think of is because it seems like a neat way to display data and to motivate me to read more (Note, the network below is not complete but it is interactive using `JavaScript`) :)
+I will be updating this page periodically to display a network diagram of the books I have read each calendar year. You might be asking why would I do that. The only answer I can think of is because it seems like a neat way to display data and to motivate me to read more (Note, the network below is not complete but it is interactive).
 
 # 2024
 
@@ -200,7 +200,7 @@ chart = ForceGraph(miserables, {
 
 ```
 
-Here is a data frame containing the books I have read so far in 2024:
+Here is the equivalent data frame containing the books I have read so far in 2024:
 
 ```{r,eval=TRUE,warning=FALSE,message=FALSE}
 

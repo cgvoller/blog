@@ -27,7 +27,7 @@ library(cli)
 
 Named after a famous artist Rene Magritte, who painted the famous 'ceci n'est pas une pipe' image, the `magrittr` / `dplyr` packages contains a suite of functions using pipes for data manipulation.
 
-I had a friend at university who frequently bought pipe tobacco as apparently it is much cheaper than regular tobacco. Anyway, much like his smoking habit, `dplyr` can chain events together. In addition to this, it is relatively readable and interpretable in comparison to `data.table` or at least to me. That isn't to say I don't like `data.table`, it has its place and advantages with larger data sets but I do not often work with such data sets that the efficiency gain outweighs the trade-off between readability. It is important to balance such things and to consider QC'ers or the possibility of someone taking over a piece of code from you.
+I had a friend at university who frequently bought pipe tobacco as apparently it is much cheaper than regular tobacco. Anyway, much like his smoking habit, `dplyr` can chain things together. In addition to this, it is relatively readable and interpretable in comparison to `data.table` (or at least to me). That isn't to say I don't like `data.table`, it has its place and advantages with larger data sets but I do not often work with such data sets that the efficiency gain outweighs the trade-off between readability. It is important to balance such things and to consider QC'ers or the possibility of someone taking over a piece of code from you.
 
 # R pipe (\|\>)
 
@@ -64,7 +64,7 @@ microbenchmark::microbenchmark("sqrt(4)" = sqrt(4),
 
 There is a wonderful answer [here](https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-native-pipe-and-the-magrittr-pipe) which goes through in more detail some of the differences.
 
-Generally speaking, if you're *really* concerned about speed you wouldn't use `dplyr`.
+Generally speaking though, if you're *really* concerned about speed you wouldn't use `dplyr`.
 
 # Alternative pipes
 
@@ -74,7 +74,7 @@ Generally speaking, if you're *really* concerned about speed you wouldn't use `d
 
 As briefly mentioned, the forward pipe from `magrittr` behaves similarly to the native pipe in R and allows you to apply potentially many functions in a sequence of code. It will take in values from the LHS and apply functions on the RHS. For example, here we are doing the following:
 
--   Select columns species, sepal length and petal length from iris
+-   Select columns species, sepal length and petal length from `iris`
 -   For the newly subsetted data, replace dots with underscores and make names lower case
 -   display the first 6 rows of the data frame
 

@@ -10,10 +10,6 @@ format:
     self-contained: true
 ---
 
-
-
-
-
 ::: grid
 ::: {.g-col-12 .g-col-md-4}
 ::: {#card-second-color .card .h-100}
@@ -31,5 +27,8 @@ I write about some of the things I find and log them here.
 :::
 :::
 :::
+
+
+
 
 ------------------------------------------------------------------------

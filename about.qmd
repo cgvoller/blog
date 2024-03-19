@@ -1,6 +1,7 @@
 ---
-title: "About"
+title: "about{Corey}"
 image: Randroom18022024_noback.png
+tbl-colwidths: [25,75]
 about:
   template: solana
   image-width: 20em
@@ -84,23 +85,43 @@ format:
 .sidekick3 cite:before {content: ' \2015 '}
 
 
+td, th {
+   border: none!important;
+}
+.table > :not(caption) > * > * {
+  background-color: #272b30;
+  color: #FFF;
+}
+
+
+
+
 </style>
 ```
+## Description
+
 My name is Corey, I graduated from UCL with a Masters in Medical Statistics in 2021 and since been working as a Statistician in the UK. I enjoy searching for new topics outside of my day-job relating to statistics and programming in R although, I will occasionally use Python to create animated videos with a package called `manim` (if you've seen any 3Blue1Brown video's on YouTube you will have seen this package implemented there.)
 
-::: {.column width="175%"}
+::: {.column width="175%" .flex-column}
+
 This blog will be focused primarily on statistics with an emphasis in medical applications although not exclusively. The aim is to push my statistical knowledge, searching for new methods and to catalogue these as often the things I stumble across become forgotten. A lot of my day job is spent looking at static outputs so where possible I will try to showcase interactive and alternative ways to display data (3-d plots, dynamic figures, tables, etc). The opinions and thoughts expressed here are my own and do not represent anyone else (i.e., employer).
 
-Details about the blog if you're interested in creating your own:
+## Arguments
 
--   This blog is currently written using [quarto](https://quarto.org/) docs, an open-source publishing system (Think Rmarkdown on steroids, with added functionality e.g. ability to handle multiple languages) and html/css.
-
--   It is hosted using [github pages](https://pages.github.com/) (Although, I've heard good things about Netlify).
-
--   At the time of writing, I am using it within [RStudio (R 4.3.1)](https://posit.co/download/rstudio-desktop/).
-
--   Pixel images are created using [aseprite](https://www.aseprite.org/).
+|       |                                                                                                                                                                                                                           |
+|-------------------|-----------------------------------------------|
+| .quarto        | This blog is currently written using [quarto](https://quarto.org/) docs, an open-source publishing system (Think Rmarkdown on steroids, with added functionality e.g. ability to handle multiple languages) and html/css. |
+| .github        | It is hosted using [github pages](https://pages.github.com/) (Although, I've heard good things about Netlify).                                                                                                            |
+| .rversion      | At the time of writing, I am using it within [RStudio (R 4.3.1)](https://posit.co/download/rstudio-desktop/).                                                                                                             |
+| .badprogrammer | ![](lifecycle-deprecated.svg)                                                                                                                                                                                             |
+| .pixel         | Pixel images are created using [aseprite](https://www.aseprite.org/).                                                                                                                                                     |
+.names | Corey  ![](lifecycle-stable.svg)|
 :::
+
+## See Also
+
+`blog()` for various posts on statistics and programming
+
 
 <br>
 

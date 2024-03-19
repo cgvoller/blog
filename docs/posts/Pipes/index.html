@@ -160,15 +160,15 @@ window.Quarto = {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html"> 
-<span class="menu-text">About</span></a>
+<span class="menu-text">?cvoller::about</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../posts.html"> 
-<span class="menu-text">Blog</span></a>
+<span class="menu-text">blog()</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../misc.html"> 
-<span class="menu-text">Miscellaneous</span></a>
+<span class="menu-text">miscellaneous()</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/cgvoller/"> <i class="bi bi-github" role="img">
@@ -220,7 +220,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">March 12, 2024</p>
+        <p class="date-modified">March 18, 2024</p>
       </div>
     </div>
       
@@ -265,7 +265,7 @@ window.Quarto = {
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>Named after a famous artist Rene Magritte, who painted the famous ‘ceci n’est pas une pipe’ image, the <code>magrittr</code> / <code>dplyr</code> packages contains a suite of functions using pipes for data manipulation.</p>
-<p>I had a friend at university who frequently bought pipe tobacco as apparently it is much cheaper than regular tobacco. Anyway, much like his smoking habit, <code>dplyr</code> can chain events together. In addition to this, it is relatively readable and interpretable in comparison to <code>data.table</code> or at least to me. That isn’t to say I don’t like <code>data.table</code>, it has its place and advantages with larger data sets but I do not often work with such data sets that the efficiency gain outweighs the trade-off between readability. It is important to balance such things and to consider QC’ers or the possibility of someone taking over a piece of code from you.</p>
+<p>I had a friend at university who frequently bought pipe tobacco as apparently it is much cheaper than regular tobacco. Anyway, much like his smoking habit, <code>dplyr</code> can chain things together. In addition to this, it is relatively readable and interpretable in comparison to <code>data.table</code> (or at least to me). That isn’t to say I don’t like <code>data.table</code>, it has its place and advantages with larger data sets but I do not often work with such data sets that the efficiency gain outweighs the trade-off between readability. It is important to balance such things and to consider QC’ers or the possibility of someone taking over a piece of code from you.</p>
 </section>
 <section id="r-pipe" class="level1">
 <h1>R pipe (|&gt;)</h1>
@@ -294,14 +294,14 @@ window.Quarto = {
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Magrittr"</span> <span class="ot">=</span> <span class="dv">4</span> <span class="sc">%&gt;%</span> <span class="fu">sqrt</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: nanoseconds
-     expr  min   lq    mean median   uq   max neval cld
-  sqrt(4)  100  200  185.07    201  201   501   100  a 
-   Native  100  102  178.03    201  201   302   100  a 
- Magrittr 3301 3401 3989.02   3402 3600 47201   100   b</code></pre>
+     expr  min   lq mean median   uq    max neval cld
+  sqrt(4)  100  100  185    200  200   1600   100   a
+   Native  100  100  169    200  200    200   100   a
+ Magrittr 3300 3400 8790   3400 3500 522900   100   a</code></pre>
 </div>
 </div>
 <p>There is a wonderful answer <a href="https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-native-pipe-and-the-magrittr-pipe">here</a> which goes through in more detail some of the differences.</p>
-<p>Generally speaking, if you’re <em>really</em> concerned about speed you wouldn’t use <code>dplyr</code>.</p>
+<p>Generally speaking though, if you’re <em>really</em> concerned about speed you wouldn’t use <code>dplyr</code>.</p>
 </section>
 </section>
 <section id="alternative-pipes" class="level1">
@@ -390,13 +390,13 @@ window.Quarto = {
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>ℹ Function 2
-✔ Function 2 [4.5s]
+✔ Function 2 [4.4s]
 
 ℹ Function 3
-✔ Function 3 [6.9s]
+✔ Function 3 [6.7s]
 
 ℹ Running main function
-✔ Running main function [7.2s]</code></pre>
+✔ Running main function [6.9s]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 107.8</code></pre>
@@ -428,7 +428,7 @@ window.Quarto = {
 <pre><code>ℹ Function 1</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>✔ Function 1 [2.2s]</code></pre>
+<pre><code>✔ Function 1 [2.1s]</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code></code></pre>
@@ -440,10 +440,10 @@ window.Quarto = {
 
 ℹ Running main function
 ℹ Function 3
-✔ Function 3 [2.2s]
+✔ Function 3 [2.1s]
 
 ℹ Running main function
-✔ Running main function [7.1s]</code></pre>
+✔ Running main function [6.9s]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 107.8</code></pre>

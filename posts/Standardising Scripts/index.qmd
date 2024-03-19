@@ -4,6 +4,7 @@ subtitle: "A guide to standardising scripts"
 author: "Corey Voller"
 date: "2024-01-28"
 toc: true
+toc-expand: 3
 categories: [R, code, Working Practices]
 image: "image.jpg"
 ---
